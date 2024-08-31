@@ -12,6 +12,7 @@ in {
     services.postgresql = {
       dataDir = "/data/pg";
       enable = true;
+      initdbArgs = [ "--auth=trust" ];
       enableTCPIP = true;
       # ensureDatabases = [ "a7db" ];
       # identMap = ''
