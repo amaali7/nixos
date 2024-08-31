@@ -13,6 +13,9 @@ in {
         espup
         cargo-espmonitor
         esptool
+				llvmPackages_latest.llvm
+				clang
+				clang-tools
       ];
   };
 }
