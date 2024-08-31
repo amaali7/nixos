@@ -22,7 +22,7 @@ in {
       #   						 # Let other names login as themselves
       #   						 superuser_map      /^(.*)$   \1
       #   				'';
-      authentication = pkgs.lib.mkOverride 10 ''
+      authentication = ''
         					#...
         					#type database DBuser origin-address auth-method
         					# ipv4
