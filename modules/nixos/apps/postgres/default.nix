@@ -12,6 +12,7 @@ in {
     services.postgresql = {
       dataDir = "/data/pg";
       enable = true;
+      enableTCPIP = true;
       settings = {
         port = 5050;
         log_min_messages = "warning";
