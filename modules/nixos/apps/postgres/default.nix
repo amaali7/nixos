@@ -13,7 +13,7 @@ in {
       dataDir = "/data/pg";
       enable = true;
       enableTCPIP = true;
-      ensureDatabases = [ "a7db" ];
+      # ensureDatabases = [ "a7db" ];
       identMap = ''
         					# ArbitraryMapName systemUser DBUser
         						 superuser_map      root      postgres
