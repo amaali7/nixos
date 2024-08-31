@@ -9,12 +9,26 @@ in {
   };
 
   config = mkIf cfg.enable {
-    # services.pgadmin = {
-    #   port = 5050;
-    #   enable = true;
-    #   initialEmail = "amaali1991@gmail.com";
-    #   initialPasswordFile = "";
-    # };
+    services.postgresql = {
+      dataDir = "/data/pg";
+      enable = true;
+      settings = {
+        port = 5050;
+        log_min_messages = "warning";
+        log_min_error_statement = "error";
+        log_min_duration_statement = 100; # ms
+        log_connections = true;
+        log_disconnections = true;
+        log_duration = true;
+        #log_line_prefix = '[] '
+        log_timezone = "UTC";
+        log_statement = "all";
+        log_directory = "pg_log";
+        log_filename = "postgresql-%Y-%m-%d_%H%M%S.log";
+        logging_collector = true;
+
+      };
+    };
     environment.systemPackages = with pkgs; [ postgresql dbeaver-bin ];
   };
 }
