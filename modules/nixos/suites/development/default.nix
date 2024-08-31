@@ -8,7 +8,7 @@ let
     #drawio = enabled;
     neovide = enabled;
     # lapce = enabled;
-		# emacs = enabled;
+    # emacs = enabled;
     # vscode = enabled;
     # surrealdb = enabled;
     postgres = enabled;
@@ -18,7 +18,8 @@ let
     zellij = enabled;
     neovim = enabled;
   };
-in {
+in
+{
   options.amaali7.suites.development = with types; {
     enable = mkBoolOpt false
       "Whether or not to enable common development configuration.";
@@ -37,7 +38,10 @@ in {
         build = enabled;
         c_cpp = enabled;
         c_cpp_libs = enabled;
-        embdedded = enabled;
+        embdedded = {
+          enable = true;
+          esp = enabled;
+        };
         javascript = enabled;
         lisp = enabled;
         lua = enabled;

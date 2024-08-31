@@ -1,7 +1,6 @@
-{
-    pkgs,
-    mkShell,
-    ...
+{ pkgs
+, mkShell
+, ...
 }:
 
 mkShell {
@@ -10,12 +9,10 @@ mkShell {
   packages = with pkgs; [
     zsh
     vim
-    geos
-    gdal
-    nixpkgs-fmt
 
     # postgres-12 with postgis support
-    postgresql  ];
+    postgresql
+  ];
 
   postgresConf =
     pkgs.writeText "postgresql.conf"
@@ -39,7 +36,7 @@ mkShell {
 
   # ENV Variables
   PGDATA = "~/.pg/";
-  DATABASE_URL="postgres://postgres@localhost:5555/";
+  DATABASE_URL = "postgres://postgres@localhost:5555/";
   # Post Shell Hook
   shellHook = ''
     echo "Using ${pkgs.postgresql.name}."
