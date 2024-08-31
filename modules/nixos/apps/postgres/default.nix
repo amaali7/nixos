@@ -14,14 +14,14 @@ in {
       enable = true;
       initdbArgs = [ "--auth=trust" ];
       enableTCPIP = true;
-      # ensureDatabases = [ "a7db" ];
-      # identMap = ''
-      #   					# ArbitraryMapName systemUser DBUser
-      #   						 superuser_map      root      postgres
-      #   						 superuser_map      postgres  postgres
-      #   						 # Let other names login as themselves
-      #   						 superuser_map      /^(.*)$   \1
-      #   				'';
+      ensureDatabases = [ "a7db" ];
+      identMap = ''
+        					# ArbitraryMapName systemUser DBUser
+        						 superuser_map      root      postgres
+        						 superuser_map      postgres  postgres
+        						 # Let other names login as themselves
+        						 superuser_map      /^(.*)$   \1
+        				'';
       authentication = ''
         					#...
         					#type database DBuser origin-address auth-method
