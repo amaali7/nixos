@@ -26,7 +26,7 @@ in {
         misc = enabled;
         fup-repl = enabled;
         comma = enabled;
-        # nix-ld = enabled;
+        nix-ld = enabled;
         bottom = enabled;
         cli = enabled;
         archive = enabled;
