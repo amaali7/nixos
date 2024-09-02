@@ -175,7 +175,7 @@
         flake.overlays.default
         # snowfall-docs.overlays
         nixgl.overlay
-        lix.overlay.default
+        lix.overlays.default
         nixpkgs-f2k.overlays.default
         yazi.overlays.default
       ];
