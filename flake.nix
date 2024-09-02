@@ -11,6 +11,11 @@
       url = "github:amaali7/kde-material-you-colors-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+		# Lix
+    lix = {
+      url = "https://git.lix.systems/lix-project/nixos-module/archive/2.91.0.tar.gz";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     # Home Manager (release-22.05)
     home-manager.url = "github:nix-community/home-manager/release-24.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
@@ -170,6 +175,7 @@
         flake.overlays.default
         # snowfall-docs.overlays
         nixgl.overlay
+        lix.overlay.default
         nixpkgs-f2k.overlays.default
         yazi.overlays.default
       ];
@@ -178,6 +184,7 @@
         home-manager.nixosModules.home-manager
         nur.nixosModules.nur
         nix-ld.nixosModules.nix-ld
+        lix.nixosModules.default
         # @TODO(jakehamilton): Replace amaali7.services.attic now that vault-agent
         # exists and can force override environment files.
         # attic.nixosModules.atticd
