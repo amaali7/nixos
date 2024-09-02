@@ -184,7 +184,7 @@
       systems.modules.nixos = with inputs; [
         home-manager.nixosModules.home-manager
         nur.nixosModules.nur
-        nix-ld.nixosModules.nix-ld
+					# nix-ld.nixosModules.nix-ld
         lix.nixosModules.default
         # @TODO(jakehamilton): Replace amaali7.services.attic now that vault-agent
         # exists and can force override environment files.
