@@ -8,5 +8,10 @@ in {
     enable = mkBoolOpt false "Whether or not to enable nix-ld.";
   };
 
-  config = mkIf cfg.enable { programs.nix-ld.dev.enable = true; };
+  config = mkIf cfg.enable {
+    programs.nix-ld.enable = true;
+    environment.systemPackages = [
+      inputs.nix-alien.packages.${pkgs.system}.nix-alien
+    ];
+  };
 }

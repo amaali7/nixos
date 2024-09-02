@@ -16,6 +16,7 @@
       url = "https://git.lix.systems/lix-project/nixos-module/archive/2.91.0.tar.gz";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+	  nix-alien.url = "github:thiagokokada/nix-alien";
     # Home Manager (release-22.05)
     home-manager.url = "github:nix-community/home-manager/release-24.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
