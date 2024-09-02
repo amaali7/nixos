@@ -9,7 +9,7 @@ in {
   };
 
   config = mkIf cfg.enable {
-    programs.nix-ld.enable = true;
+    programs.nix-ld.dev.enable = true;
     environment.systemPackages = [
       inputs.nix-alien.packages.${pkgs.system}.nix-alien
     ];
