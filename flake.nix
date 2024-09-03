@@ -11,12 +11,12 @@
       url = "github:amaali7/kde-material-you-colors-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-		# Lix
+    # Lix
     lix = {
       url = "https://git.lix.systems/lix-project/nixos-module/archive/2.91.0.tar.gz";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-	  nix-alien.url = "github:thiagokokada/nix-alien";
+    nix-alien.url = "github:thiagokokada/nix-alien";
     # Home Manager (release-22.05)
     home-manager.url = "github:nix-community/home-manager/release-24.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
@@ -157,6 +157,10 @@
       };
     in
     lib.mkFlake {
+      templates = {
+        python.description = "This is python 3.11 env using nix flake!";
+      };
+
       channels-config = {
         allowUnfree = true;
         permittedInsecurePackages = [
@@ -184,7 +188,7 @@
       systems.modules.nixos = with inputs; [
         home-manager.nixosModules.home-manager
         nur.nixosModules.nur
-					# nix-ld.nixosModules.nix-ld
+        # nix-ld.nixosModules.nix-ld
         lix.nixosModules.default
         # @TODO(jakehamilton): Replace amaali7.services.attic now that vault-agent
         # exists and can force override environment files.
