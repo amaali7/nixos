@@ -11,7 +11,8 @@ in {
     environment.systemPackages = with pkgs; [
       # inputs.nixvim.packages.${pkgs.system}.default
       # lunarvim
-      amaali7.neovim
+			# amaali7.neovim
+      neovim
       nil
       stylua
       lua-language-server
