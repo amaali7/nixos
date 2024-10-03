@@ -173,6 +173,7 @@
           #   # "electron-22.3.27"
           # "electron-25.9.0"
           # "nix-2.15.3"
+        "electron-27.3.11"
         ];
       };
       overlays = with inputs; [
