@@ -11,6 +11,6 @@ in {
   config = mkIf cfg.enable {
     # environment.systemPackages = [ pkgs.amaali7.list-iommu ];
 
-    # amaali7 = { apps = { libreoffice = enabled; }; };
+    amaali7 = { apps = { libreoffice = enabled; }; };
   };
 }
