@@ -17,7 +17,7 @@ in {
     #   };
     # };
     environment.systemPackages = with pkgs; [
-      emacs29
+      emacs30
       pandoc
       graphviz
       markdownlint-cli2

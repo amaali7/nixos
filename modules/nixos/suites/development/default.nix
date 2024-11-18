@@ -7,8 +7,8 @@ let
     docker = enabled;
     #drawio = enabled;
     neovide = enabled;
-    # lapce = enabled;
-    # emacs = enabled;
+    lapce = enabled;
+    emacs = enabled;
     # vscode = enabled;
     # surrealdb = enabled;
     postgres = enabled;
