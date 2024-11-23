@@ -9,6 +9,7 @@ let
     neovide = enabled;
     lapce = enabled;
     emacs = enabled;
+    tmux = enabled;
     # vscode = enabled;
     # surrealdb = enabled;
     postgres = enabled;
