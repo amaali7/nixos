@@ -46,10 +46,6 @@
     fsType = "vfat";
   };
   # my filesystems
-  fileSystems."/home/ai3wm/Videos" = {
-    device = "/dev/disk/by-uuid/d77bbc23-ea8f-41ce-90d8-bcb1da447bbb";
-    fsType = "ext4";
-  };
   fileSystems."/home/ai3wm" = {
     device = "/dev/disk/by-uuid/4ce2e9eb-6bdb-4758-8c62-6a86aa23740c";
     fsType = "ext4";
