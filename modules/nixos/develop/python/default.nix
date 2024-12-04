@@ -9,14 +9,13 @@ in {
 
   config = mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
-      python311
-      python311Packages.setuptools
-      python311Packages.poetry-core
-      python311Packages.pip
-      python311Packages.nose
-      python311Packages.black
-      python311Packages.pyflakes
-      python311Packages.pytest
+      python312
+      python312Packages.setuptools
+      python312Packages.poetry-core
+      python312Packages.pip
+      python312Packages.black
+      python312Packages.pyflakes
+      python312Packages.pytest
       poetry
     ];
   };

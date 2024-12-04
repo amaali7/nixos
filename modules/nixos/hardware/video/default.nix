@@ -15,12 +15,12 @@ in {
       # smooth backlight control
       brillo.enable = true;
 
-      opengl = {
-        extraPackages = with pkgs; [ vaapiVdpau libvdpau-va-gl ];
+      graphics = {
         extraPackages32 = with pkgs.pkgsi686Linux; [
           vaapiVdpau
           libvdpau-va-gl
         ];
+        extraPackages = with pkgs; [ vaapiVdpau libvdpau-va-gl ];
       };
 
       opentabletdriver.enable = true;

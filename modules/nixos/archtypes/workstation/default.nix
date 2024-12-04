@@ -86,21 +86,17 @@ in {
               type = "Application";
             };
           };
-          programs.home-manager = enabled;
+          # programs.home-manager = enabled;
           programs.git = {
             enable = true;
             userName = "Abdallah Ali";
             userEmail = "amaali1991@gmail.com";
             aliases = { st = "status"; };
-            extraConfig ={
-								init = {
-									defaultBranch = "main";
-								};
-								safe = {
-									directory = "*";
-								};
-							};
-						};
+            extraConfig = {
+              init = { defaultBranch = "main"; };
+              safe = { directory = "*"; };
+            };
+          };
           home.shellAliases = {
             lc = "${pkgs.colorls}/bin/colorls --sd";
             lcg = "lc --gs";

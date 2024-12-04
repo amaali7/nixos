@@ -10,10 +10,7 @@ stdenv.mkDerivation rec {
     stripRoot = false;
   };
 
-  propagatedUserEnvPkgs = with pkgs; [
-    gnome.gnome-themes-extra
-    gtk-engine-murrine
-  ];
+  propagatedUserEnvPkgs = with pkgs; [ gnome-themes-extra gtk-engine-murrine ];
 
   installPhase = ''
     mkdir -p $out/share/themes/

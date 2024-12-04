@@ -6,8 +6,7 @@ let
 
   cfg = config.amaali7.user;
   home-directory = if cfg.name == null then null else "/home/${cfg.name}";
-in
-{
+in {
   options.amaali7.user = {
     enable = mkOpt types.bool false "Whether to configure the user account.";
     name = mkOpt (types.nullOr types.str) "ai3wm" "The user account.";

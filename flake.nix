@@ -3,7 +3,7 @@
   description = "Amaali7";
   inputs = {
     # NixPkgs (nixos-23.11)
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-24.05";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
 
     # NixPkgs Unstable (nixos-unstable)
     unstable.url = "github:nixos/nixpkgs/nixos-unstable";
@@ -13,12 +13,13 @@
     };
     # Lix
     lix = {
-      url = "https://git.lix.systems/lix-project/nixos-module/archive/2.91.0.tar.gz";
+      url =
+        "https://git.lix.systems/lix-project/nixos-module/archive/2.91.0.tar.gz";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nix-alien.url = "github:thiagokokada/nix-alien";
     # Home Manager (release-22.05)
-    home-manager.url = "github:nix-community/home-manager/release-24.05";
+    home-manager.url = "github:nix-community/home-manager/release-24.11";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     matugen = {
       url = "github:/InioX/Matugen";
@@ -54,6 +55,7 @@
 
     # Snowfall Lib
     snowfall-lib.url = "github:snowfallorg/lib?ref=v3.0.3"; # ?ref=v2.1.1";
+    # snowfall-lib.url = "github:snowfallorg/lib"; # ?ref=v2.1.1";
     snowfall-lib.inputs.nixpkgs.follows = "nixpkgs";
 
     # Zen Browser
@@ -155,8 +157,7 @@
           };
         };
       };
-    in
-    lib.mkFlake {
+    in lib.mkFlake {
       templates = {
         python.description = "This is python 3.11 env using nix flake!";
       };
@@ -173,7 +174,10 @@
           #   # "electron-22.3.27"
           # "electron-25.9.0"
           # "nix-2.15.3"
-        "electron-27.3.11"
+          "electron-27.3.11"
+          "dotnet-runtime-6.0.36"
+          "dotnet-sdk-wrapped-6.0.428"
+          "dotnet-sdk-6.0.428"
         ];
       };
       overlays = with inputs; [

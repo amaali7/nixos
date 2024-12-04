@@ -3,8 +3,7 @@
 let
   inherit (lib) types;
   inherit (lib.amaali7) mkOpt;
-in
-{
+in {
   options.amaali7.host = {
     name = mkOpt (types.nullOr types.str) host "The host name.";
   };

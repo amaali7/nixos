@@ -17,17 +17,15 @@ let
 
     passthru = { fileName = defaultIconFileName; };
   };
-  propagatedIcon = pkgs.runCommandNoCC "propagated-icon"
-    {
-      passthru = { fileName = cfg.icon.fileName; };
-    } ''
+  propagatedIcon = pkgs.runCommandNoCC "propagated-icon" {
+    passthru = { fileName = cfg.icon.fileName; };
+  } ''
     local target="$out/share/amaali7-icons/user/${cfg.name}"
     mkdir -p "$target"
 
     cp ${cfg.icon} "$target/${cfg.icon.fileName}"
   '';
-in
-{
+in {
   options.amaali7.user = with types; {
     name = mkOpt str "ai3wm" "The name to use for the user account.";
     fullName = mkOpt str "Abdallah Adam" "The full name of the user.";
@@ -42,7 +40,7 @@ in
   };
 
   config = {
-    users.users.${cfg.name} = {
+    users.users."ai3wm" = {
       isNormalUser = true;
 
       inherit (cfg) name initialPassword;

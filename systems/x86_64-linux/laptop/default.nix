@@ -6,8 +6,6 @@ with lib.amaali7; {
   boot.kernelModules = [ "kvm-intel" ];
   nixpkgs.buildPlatform.system = "x86_64-linux";
   nixpkgs.hostPlatform.system = "aarch64-linux";
-  environment.systemPackages =
-    [ inputs.home-manager.packages.${pkgs.system}.home-manager ];
   amaali7 = {
     archetypes = {
       workstation = enabled;
@@ -31,5 +29,5 @@ with lib.amaali7; {
     #     ];
     #   };
   };
-  system.stateVersion = "24.05";
+  system.stateVersion = "24.11";
 }

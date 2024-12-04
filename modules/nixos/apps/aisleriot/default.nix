@@ -9,9 +9,6 @@ in {
   };
 
   config = mkIf cfg.enable {
-    environment.systemPackages = with pkgs; [
-      gnome.gnome-mahjongg
-      gnome.aisleriot
-    ];
+    environment.systemPackages = with pkgs; [ gnome-mahjongg aisleriot ];
   };
 }

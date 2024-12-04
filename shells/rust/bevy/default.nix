@@ -1,7 +1,4 @@
-{ pkgs
-, mkShell
-, ...
-}:
+{ pkgs, mkShell, ... }:
 
 mkShell {
   # The Nix packages provided in the environment
@@ -34,11 +31,9 @@ mkShell {
   ]) ++ pkgs.lib.optionals pkgs.stdenv.isDarwin (with pkgs; [ libiconv ]);
   shellHook = ''
     # Required
-    export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:${pkgs.lib.makeLibraryPath [
-      pkgs.alsaLib
-      pkgs.udev
-      pkgs.vulkan-loader
-    ]}"
+    export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:${
+      pkgs.lib.makeLibraryPath [ pkgs.alsa-lib pkgs.udev pkgs.vulkan-loader ]
+    }"
     # Aliases and other fluff/ease of use
     alias runIntel="nixVulkanIntel cargo run"
     alias runMommyIntel="nixVulkanIntel cargo mommy run"

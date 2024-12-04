@@ -58,7 +58,7 @@
   #  hardware.pulseaudio.extraConfig = "load-module module-native-protocol-tcp auth-ip-acl=127.0.0.1";
   hardware.acpilight.enable = true;
   hardware = {
-    opengl.driSupport32Bit = true;
+    graphics.enable32Bit = true;
     pulseaudio.support32Bit = true;
   };
   powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";

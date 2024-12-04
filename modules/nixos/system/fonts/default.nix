@@ -37,13 +37,13 @@ in {
           jost
           lexend
           noto-fonts
-          noto-fonts-cjk
+          noto-fonts-cjk-sans
           noto-fonts-emoji
           roboto
           fira-code
           # nerdfonts
           (nerdfonts.override {
-            fonts = ["FiraCode" "JetBrainsMono" "IosevkaTerm" "Iosevka" ];
+            fonts = [ "FiraCode" "JetBrainsMono" "IosevkaTerm" "Iosevka" ];
           })
         ] ++ cfg.fonts;
 

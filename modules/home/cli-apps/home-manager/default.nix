@@ -5,8 +5,7 @@ let
   inherit (lib.amaali7) enabled;
 
   cfg = config.amaali7.cli-apps.home-manager;
-in
-{
+in {
   options.amaali7.cli-apps.home-manager = {
     enable = mkEnableOption "home-manager";
   };

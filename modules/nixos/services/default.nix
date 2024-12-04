@@ -30,7 +30,7 @@ in {
       dbus.packages = [ pkgs.gcr ];
 
       udev = {
-        packages = with pkgs; [ gnome.gnome-settings-daemon ];
+        packages = with pkgs; [ gnome-settings-daemon ];
         extraRules = ''
           # add my android device to adbusers
           SUBSYSTEM=="usb", ATTR{idVendor}=="22d9", MODE="0666", GROUP="adbusers"
@@ -46,13 +46,13 @@ in {
       enable = true;
       displayManager.gdm = { enable = true; };
     };
-      services.displayManager = {
-        autoLogin = {
-          enable = true;
-          user = "ai3wm";
-        };
-        # sddm = { enable = true; };
+    services.displayManager = {
+      autoLogin = {
+        enable = true;
+        user = "ai3wm";
       };
+      # sddm = { enable = true; };
+    };
     services.gvfs.enable = true;
     services.acpid.enable = true;
     services.printing.enable = true;
