@@ -4,10 +4,10 @@ with lib.amaali7;
 let
   cfg = config.amaali7.suites.development;
   apps = {
-    docker = enabled;
+    # docker = enabled;
     #drawio = enabled;
-    neovide = enabled;
-    lapce = enabled;
+    # neovide = enabled;
+    # lapce = enabled;
     emacs = enabled;
     tmux = enabled;
     # vscode = enabled;
