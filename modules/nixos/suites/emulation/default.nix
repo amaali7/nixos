@@ -15,6 +15,7 @@ in {
         qemu = enabled;
         pcsx2 = enabled;
         fceux = enabled;
+        waydroid = enabled;
       };
     };
   };
