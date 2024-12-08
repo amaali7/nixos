@@ -45,7 +45,7 @@ mkShell {
       tmux send-keys -t $TM_SH:db_server "cd $PGDATA" C-m
       tmux send-keys -t $TM_SH:db_server 'export PGHOST="$PGDATA"' C-m
       # Setup: DB
-      tmux send-keys -t $TM_SH:db_server '[ ! -d $PGDATA ] && pg_ctl initdb -o "-U postgres" && cat "$postgresConf" >> $PGDATA/postgresql.conf' C-m
+      tmux send-keys -t $TM_SH:db_server '[ ! -f $PGDATA/postgresql.conf ] && pg_ctl initdb -o "-U postgres" && cat "$postgresConf" >> $PGDATA/postgresql.conf' C-m
       #tmux send-keys -t $TM_SH:db_server ' pg_ctl initdb -o "-U postgres" && cat "$postgresConf" >> $PGDATA/postgresql.conf' C-m
 
       tmux send-keys -t $TM_SH:db_server 'pg_ctl -o "-p 5555 -k $PGDATA" start' C-m
