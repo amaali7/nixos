@@ -52,6 +52,6 @@ mkShell {
       tmux new-window -t $TM_SH -n "controll"
       tmux select-window -t $TM_SH:controll
     fi
-    # tmux attach-session -t $SESH
+    tmux detach -s "$TH_SH"
   '';
 }
