@@ -3,22 +3,20 @@
 with lib;
 with lib.amaali7; {
   imports = [ (modulesPath + "/installer/sd-card/sd-image.nix") ];
+
   fileSystems."/" = lib.mkDefault {
-    device = "/dev/disk/by-uuid/dbe6da9d-f411-4d35-b1f7-db3c635712f1";
-    fsType = "btrfs";
-    options = [ "subvol=root" ];
+    device = "/dev/disk/by-label/ROOT";
+    fsType = "ext4";
   };
 
-  fileSystems."/nix" = lib.mkDefault {
-    device = "/dev/disk/by-uuid/dbe6da9d-f411-4d35-b1f7-db3c635712f1";
-    fsType = "btrfs";
-    options = [ "subvol=nix" ];
+  fileSystems."/boot" = lib.mkDefault {
+    device = "/dev/disk/by-label/BOOT";
+    fsType = "vfat";
   };
 
-  fileSystems."/home" = lib.mkDefault {
-    device = "/dev/disk/by-uuid/dbe6da9d-f411-4d35-b1f7-db3c635712f1";
-    fsType = "btrfs";
-    options = [ "subvol=home" ];
+  fileSystems."/data" = lib.mkDefault {
+    device = "/dev/disk/by-label/DATA";
+    fsType = "ext4";
   };
 
   sdImage = { compressImage = false; };
@@ -31,5 +29,5 @@ with lib.amaali7; {
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "23.11"; # Did you read the comment?
+  system.stateVersion = "24.11"; # Did you read the comment?
 }
