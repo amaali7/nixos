@@ -40,7 +40,7 @@ in {
   };
 
   config = {
-    users.users."ai3wm" = {
+    users.users."${cfg.name}" = {
       isNormalUser = true;
 
       inherit (cfg) name initialPassword;
