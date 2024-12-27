@@ -18,6 +18,7 @@ in {
         xfce = enabled;
       };
       cli-apps = { dmenu = enabled; };
+      apps = { ulauncher = enabled; };
       # system.fonts = enabled;
       home = {
         extraOptions = {
@@ -26,7 +27,7 @@ in {
             lm_sensors
             smartmontools
             foot
-            rofi
+            # rofi
             imagemagick
             sassc
             # picom-pijulius
@@ -38,7 +39,6 @@ in {
         };
       };
     };
-
 
   };
 }
