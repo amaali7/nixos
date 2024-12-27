@@ -7,5 +7,6 @@ in {
     enable = mkBoolOpt false "Whether or not to enable i3.";
   };
 
-  config = mkIf cfg.enable { environment.systemPackages = [ ulauncher ]; };
+  config =
+    mkIf cfg.enable { environment.systemPackages = with pkgs; [ ulauncher ]; };
 }
