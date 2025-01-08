@@ -55,7 +55,7 @@ in {
       # system to select).
       # uid = 1000;
 
-      extraGroups = [ "wheel" "dialout" "network" ] ++ cfg.extraGroups;
+      extraGroups = [ "wheel" "dialout" "network" "docker" ] ++ cfg.extraGroups;
     } // cfg.extraOptions;
   };
 }
