@@ -12,15 +12,16 @@ in {
   config = mkIf cfg.enable {
     amaali7 = {
       desktop = {
-				# exwm = enabled;
+        # exwm = enabled;
         # hyprland = enabled;
         i3wm = enabled;
+        enlightenment = enabled;
         # awesomewm = enabled;
         # cde = enabled;
         addons = {
-        #   wallpapers = enabled;
-           rofi = enabled;
-         };
+          #   wallpapers = enabled;
+          rofi = enabled;
+        };
       };
 
       apps = {
