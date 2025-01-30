@@ -26,8 +26,8 @@ in {
 
       apps = {
         firefox = enabled;
-        zen = enabled;
-        brave = enabled;
+        # zen = enabled;
+        # brave = enabled;
         vlc = enabled;
         logseq = enabled;
         # twitter = enabled;
