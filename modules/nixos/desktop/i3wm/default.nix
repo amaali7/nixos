@@ -34,7 +34,7 @@ in {
             picom
             wezterm
             material-icons
-            material-symbols
+            # material-symbols
           ];
         };
       };
