@@ -1,5 +1,5 @@
-{ channels, ... }:
+# { channels, ... }:
 
-final: prev: {
-  inherit (channels.unstable) nix;
-}
+# final: prev: {
+#  inherit (channels.unstable) nix;
+# }
