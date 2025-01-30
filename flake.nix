@@ -192,7 +192,7 @@
 
       systems.modules.nixos = with inputs; [
         home-manager.nixosModules.home-manager
-        nur.nixosModules.nur
+        nur.modules.nixos.default
         # nix-ld.nixosModules.nix-ld
         # lix.nixosModules.default
         # @TODO(jakehamilton): Replace amaali7.services.attic now that vault-agent
