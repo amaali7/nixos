@@ -11,7 +11,7 @@
   boot.plymouth.enable = true;
 
   fileSystems."/" = {
-    device = "/dev/disk/by-uuid/642a5e50-d7c9-4aa1-a682-02248b725492";
+    device = "/dev/disk/by-uuid/657ecc0a-8f0f-4803-9a5a-247172b9a008";
     fsType = "ext4";
   };
 
@@ -36,9 +36,8 @@
   };
 
   fileSystems."/nix" = {
-    device = "/dev/disk/by-uuid/d3ecbcd2-a11f-4330-b812-b95edcffc03c";
-    fsType = "btrfs";
-    options = [ "subvol=nix" ];
+    device = "/dev/disk/by-uuid/9894e4b7-33ef-4513-4513-b0c0-4524ba8e464f";
+    fsType = "ext4";
   };
 
   fileSystems."/boot/efi" = {
