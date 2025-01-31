@@ -44,6 +44,7 @@ in {
         dark-decay-gtk
         decayce-gtk
         material-symbols
+jetbrains-mono
         monoco-nf
         sfmono-nf
         st
