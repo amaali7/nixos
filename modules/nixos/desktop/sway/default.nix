@@ -14,22 +14,18 @@ in {
     ];
     programs.sway = {
       enable = true;
-      package = (pkgs.swayfx.overrideAttrs
-        (old: { passthru.providedSessions = [ "sway" ]; }));
+      package = pkgs.swayfx;
+      # package = (pkgs.swayfx.overrideAttrs
+      #   (old: { passthru.providedSessions = [ "sway" ]; }));
       extraPackages = with pkgs;
         with pkgs.amaali7; [
           swayfx
           swaylock
           swayidle
           foot
-          dmenu
           waybar
-
-          wofi
           autotiling-rs
           light
-          #zorin-icons
-          # zorin-desktop-themes
           ueberzugpp
         ];
       wrapperFeatures.gtk = true; # so that gtk works properly

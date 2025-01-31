@@ -15,22 +15,20 @@ in {
         # exwm = enabled;
         # hyprland = enabled;
         i3wm = enabled;
-        enlightenment = enabled;
+        sway = enabled;
+        # enlightenment = enabled;
         # awesomewm = enabled;
         # cde = enabled;
-        addons = {
-          #   wallpapers = enabled;
-          rofi = enabled;
-        };
+        #addons = {
+        #   wallpapers = enabled;
+        #    rofi = enabled;
+        # };
       };
 
       apps = {
         firefox = enabled;
-        # zen = enabled;
-        # brave = enabled;
         vlc = enabled;
         logseq = enabled;
-        # twitter = enabled;
         gparted = enabled;
       };
     };
