@@ -1,6 +1,6 @@
-{ lib, pkgs, config, osConfig ? { }, format ? "unknown", ... }:
+{ lib, pkgs, config, osConfig ? { }, format ? "unknown", namespace, ... }:
 
-with lib.amaali7; {
+with lib.${namespace}; {
   amaali7 = {
     user = {
       enable = true;
@@ -8,6 +8,7 @@ with lib.amaali7; {
     };
     apps = {
       # hyprland = enabled;
+      i3status = enabled;
     };
     cli-apps = {
       home-manager = enabled;

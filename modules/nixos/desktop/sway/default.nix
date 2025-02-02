@@ -8,7 +8,7 @@ in {
   };
 
   config = mkIf cfg.enable {
-    services.xserver.displayManager.sessionPackages = [
+    services.displayManager.sessionPackages = [
       (pkgs.swayfx.overrideAttrs
         (old: { passthru.providedSessions = [ "sway" ]; }))
     ];

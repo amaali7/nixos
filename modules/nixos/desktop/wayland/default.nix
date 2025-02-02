@@ -21,8 +21,8 @@ in {
     ];
     qt.platformTheme = "qt5ct";
     # QT
-    hardware.opengl = {
-      driSupport32Bit = true;
+    hardware.graphics = {
+      enable32Bit = true;
       enable = true;
     };
   };
