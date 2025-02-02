@@ -19,6 +19,12 @@ in {
   };
 
   config = mkIf cfg.enable (mkMerge [{
+    snowfallorg.user = {
+      enable = true;
+      name = "name";
+      # home = "/home/ai3wm/";
+    };
+
     assertions = [
       {
         assertion = cfg.name != null;
