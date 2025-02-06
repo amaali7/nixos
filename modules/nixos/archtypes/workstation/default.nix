@@ -9,6 +9,14 @@ in {
   };
 
   config = mkIf cfg.enable {
+    users.users."awsome" = {
+      isNormalUser = true;
+      name = "awsome";
+      initialPassword = "password";
+      home = "/home/awsome";
+      group = "users";
+      extraGroups = [ "wheel" "dialout" "network" "docker" ];
+    };
     environment.systemPackages = with pkgs;
       [
         colorls
@@ -20,14 +28,14 @@ in {
         common = enabled;
         common-slim = enabled;
         desktop = enabled;
-         development = enabled;
-         emulation = enabled;
-         art = enabled;
-         video = enabled;
-         social = enabled;
-         media = enabled;
-         music = enabled;
-         office = enabled;
+        development = enabled;
+        emulation = enabled;
+        art = enabled;
+        video = enabled;
+        social = enabled;
+        media = enabled;
+        music = enabled;
+        office = enabled;
       };
       services = enabled;
 

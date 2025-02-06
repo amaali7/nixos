@@ -18,7 +18,7 @@ in {
         i3wm = enabled;
         sway = enabled;
         # enlightenment = enabled;
-        # awesomewm = enabled;
+        awesomewm = enabled;
         # cde = enabled;
         #addons = {
         #   wallpapers = enabled;
