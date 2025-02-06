@@ -10,6 +10,7 @@ in {
   };
 
   config = mkIf cfg.enable {
+    programs.dconf.enable = true;
     amaali7 = {
       desktop = {
         # exwm = enabled;
