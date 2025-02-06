@@ -28,6 +28,7 @@ in {
             "Mononoki"
           ];
         })
+        acyl-icons
         font-awesome
 
         # themes
@@ -44,7 +45,7 @@ in {
         dark-decay-gtk
         decayce-gtk
         material-symbols
-jetbrains-mono
+        jetbrains-mono
         monoco-nf
         sfmono-nf
         st
