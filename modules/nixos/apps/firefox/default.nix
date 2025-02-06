@@ -8,8 +8,7 @@ let
     "browser.startup.homepage" = "https://google.com";
     "browser.ssb.enabled" = true;
   };
-in
-{
+in {
   options.amaali7.apps.firefox = with types; {
     enable = mkBoolOpt false "Whether or not to enable Firefox.";
     extraConfig =
@@ -25,7 +24,7 @@ in
       extraOptions = {
         programs.firefox = {
           enable = true;
-
+          nativeMessagingHosts = [ pkgs.vdhcoapp ];
           profiles.${config.amaali7.user.name} = {
             inherit (cfg) extraConfig userChrome settings;
             id = 0;
