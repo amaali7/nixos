@@ -28,7 +28,7 @@ in {
             "Mononoki"
           ];
         })
-        acyl-icons
+        acyl
         font-awesome
 
         # themes
