@@ -50,8 +50,14 @@ in {
       sddm = {
         enable = true;
         package = pkgs.lib.mkForce pkgs.kdePackages.sddm;
-        extraPackages = pkgs.lib.mkForce [ pkgs.sddm-astronaut ];
-        theme = "astronaut";
+        extraPackages = with pkgs;
+          lib.mkForce [
+            kdePackages.qtsvg
+            sddm-astronaut
+            kdePackages.ffmpegthumbs
+            kdePackages.qtvirtualkeyboard
+          ];
+        theme = "cyberpunk";
       };
     };
     services.gvfs.enable = true;
