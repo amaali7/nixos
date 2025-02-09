@@ -49,7 +49,7 @@ in {
       };
       sddm = {
         enable = true;
-        # package = pkgs.lib.mkForce pkgs.libsForQt5.sddm;
+        package = pkgs.lib.mkForce pkgs.kdePackages.sddm;
         extraPackages = pkgs.lib.mkForce [ pkgs.sddm-astronaut ];
         theme = "astronaut";
       };
