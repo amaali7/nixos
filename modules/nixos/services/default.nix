@@ -42,16 +42,17 @@ in {
     services.postgresql.enable = true;
     services.teamviewer.enable = true;
     services.libinput.enable = true;
-    services.xserver = {
-      enable = true;
-      displayManager.gdm = { enable = true; };
-    };
     services.displayManager = {
       autoLogin = {
         enable = true;
         user = "ai3wm";
       };
-      # sddm = { enable = true; };
+      sddm = {
+        enable = true;
+        # package = pkgs.lib.mkForce pkgs.libsForQt5.sddm;
+        extraPackages = pkgs.lib.mkForce [ pkgs.sddm-astronaut ];
+        theme = "astronaut";
+      };
     };
     services.gvfs.enable = true;
     services.acpid.enable = true;

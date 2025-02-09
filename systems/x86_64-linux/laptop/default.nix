@@ -7,6 +7,8 @@ with lib.amaali7; {
   nixpkgs.buildPlatform.system = "x86_64-linux";
   nixpkgs.hostPlatform.system = "aarch64-linux";
   amaali7 = {
+
+    user.name = "awsome";
     archetypes = {
       workstation = enabled;
       gaming = enabled;

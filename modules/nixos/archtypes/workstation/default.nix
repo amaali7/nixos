@@ -9,20 +9,9 @@ in {
   };
 
   config = mkIf cfg.enable {
-    users.users."awsome" = {
-      isNormalUser = true;
-      name = "awsome";
-      initialPassword = "password";
-      home = "/home/awsome";
-      group = "users";
-      extraGroups = [ "wheel" "dialout" "network" "docker" ];
-    };
-    environment.systemPackages = with pkgs;
-      [
-        colorls
-        # propagatedIcon
-      ];
+    environment.systemPackages = with pkgs; [ colorls ];
     amaali7 = {
+      user.name = "ai3wm";
       shell.zsh = enabled;
       suites = {
         common = enabled;
@@ -40,7 +29,6 @@ in {
       services = enabled;
 
       # tools = { appimage-run = enabled; };
-
       home = {
         file = {
           "Desktop/.keep".text = "";
