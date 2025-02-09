@@ -11,7 +11,6 @@ in {
   config = mkIf cfg.enable {
     environment.systemPackages = with pkgs; [ colorls ];
     amaali7 = {
-      user.name = "ai3wm";
       shell.zsh = enabled;
       suites = {
         common = enabled;
