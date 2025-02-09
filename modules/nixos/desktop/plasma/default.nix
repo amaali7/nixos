@@ -12,5 +12,6 @@ in {
       enable = true;
       enableQt5Integration = true;
     };
+    environment.systemPackages = with pkgs; [ kdePackages.krohnkite ];
   };
 }
