@@ -12,7 +12,11 @@ in {
       enable = true;
       enableQt5Integration = true;
     };
-    environment.systemPackages = with pkgs; [ kdePackages.krohnkite ];
+    environment.systemPackages = with pkgs; [
+      kdePackages.krohnkite
+      qt6Packages.qtstyleplugin-kvantum
+      kdePackages.qtstyleplugin-kvantum
+    ];
     systemd.user.services = {
       plasma-run-with-systemd = {
         description = "Run KDE Plasma via systemd";
