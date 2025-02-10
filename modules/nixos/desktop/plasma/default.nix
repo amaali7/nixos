@@ -13,5 +13,15 @@ in {
       enableQt5Integration = true;
     };
     environment.systemPackages = with pkgs; [ kdePackages.krohnkite ];
+    systemd.user.services = {
+      plasma-run-with-systemd = {
+        description = "Run KDE Plasma via systemd";
+        wantedBy = [ "basic.target" ];
+        serviceConfig.Type = "oneshot";
+        script = ''
+          env KDEWM=${pkgs.i3-gaps}/usr/bin/i3 ${pkgs.kdePackages.plasma-workspace}/usr/bin/startplasma-x11
+        '';
+      };
+    };
   };
 }
