@@ -32,7 +32,7 @@ in {
         font-awesome
 
         # themes
-        libsForQt5.qtstyleplugins
+        kdePackages.qtstyleplugins
         qogir-theme # gtk
         papirus-icon-theme
         qogir-icon-theme

@@ -19,7 +19,7 @@ in {
       swww
       wlprop
     ];
-    qt.platformTheme = "qt5ct";
+    qt.platformTheme = "qt6ct";
     # QT
     hardware.graphics = {
       enable32Bit = true;

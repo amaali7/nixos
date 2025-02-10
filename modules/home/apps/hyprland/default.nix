@@ -10,23 +10,22 @@ in {
 
   config = mkIf cfg.enable {
     home.packages = with pkgs; [
-      libsForQt5.polkit-kde-agent
-      libsForQt5.qt5ct
-      qt6Packages.qt6ct
-      libsForQt5.dolphin
+      kdePackages.polkit-kde-agent
+      kdePackages.qt6ct
+      kdePackages.dolphin
       gammastep
       bc
-      libsForQt5.systemsettings
+      kdePackages.systemsettings
       fish
       gnome.gnome-bluetooth
       strawberry
       nwg-look
       blueman
       qt6Packages.qtstyleplugin-kvantum
-      libsForQt5.qtstyleplugin-kvantum
-      libsForQt5.konsole
-      libsForQt5.plasma-workspace
-      libsForQt5.kconfig
+      kdePackages.qtstyleplugin-kvantum
+      kdePackages.konsole
+      kdePackages.plasma-workspace
+      kdePackages.kconfig
       glib
       gsettings-qt
       bun
