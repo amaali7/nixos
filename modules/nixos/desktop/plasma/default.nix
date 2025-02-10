@@ -18,13 +18,17 @@ in {
       kdePackages.qtstyleplugin-kvantum
     ];
     systemd.user.services = {
-      plasma-run-with-systemd = {
-        description = "Run KDE Plasma via systemd";
-        wantedBy = [ "basic.target" ];
-        serviceConfig.Type = "oneshot";
-        script = ''
-          env KDEWM=${pkgs.i3-gaps}/usr/bin/i3 ${pkgs.kdePackages.plasma-workspace}/usr/bin/startplasma-x11
-        '';
+      plasma-kwin_x11 = { enable = false; };
+      plasma-i3 = {
+        enable = true;
+        description = "Launch Plasma with i3";
+        before = [ "plasma-workspace.target" ];
+        wantedBy = [ "plasma-workspace.target" ];
+        serviceConfig = {
+          Type = "oneshot";
+          ExecStart = "${pkgs.i3}/usr/bin/i3";
+          Restart = "on-failure";
+        };
       };
     };
   };
