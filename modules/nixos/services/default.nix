@@ -49,7 +49,7 @@ in {
       };
       sddm = {
         enable = true;
-        # wayland = disabled;
+        wayland = disabled;
         # package = pkgs.kdePackages.sddm;
         # extraPackages = with pkgs;
         #   [
