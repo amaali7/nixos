@@ -49,6 +49,7 @@ in {
       };
       sddm = {
         enable = true;
+        # wayland = disabled;
         # package = pkgs.kdePackages.sddm;
         # extraPackages = with pkgs;
         #   [
@@ -60,6 +61,7 @@ in {
         # theme = "cyberpunk";
       };
     };
+    services.xserver = enabled;
     services.gvfs.enable = true;
     services.acpid.enable = true;
     services.printing.enable = true;
