@@ -6,13 +6,7 @@ with lib.${namespace}; {
       enable = true;
       name = "ai3wm";
     };
-    apps = {
-      # hyprland = enabled;
-      i3status = enabled;
-    };
-    cli-apps = {
-      home-manager = enabled;
-      # nixvim = enabled;
-    };
+    apps = { hyprland = enabled; };
+    cli-apps = { home-manager = enabled; };
   };
 }

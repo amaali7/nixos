@@ -40,7 +40,7 @@
 
     # Aylur AGS shell
     ags = {
-      url = "github:Aylur/ags?ref=v1.8.2";
+      url = "github:Aylur/ags?ref=v2.3.0";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     # hyprland.url = "github:hyprwm/Hyprland";
