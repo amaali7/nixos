@@ -72,7 +72,7 @@ in {
       wlprop
       inputs.hyprland-contrib.packages.${pkgs.system}.hyprprop
       # inputs.kmyc.defaultPackage.${pkgs.system}
-      inputs.ags.packages.${pkgs.system}.agsFull
+      inputs.ags.packages.${pkgs.system}.ags
     ];
 
   };

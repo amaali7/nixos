@@ -40,7 +40,8 @@
 
     # Aylur AGS shell
     ags = {
-      url = "github:Aylur/ags?ref=v2.3.0";
+      #url = "github:Aylur/ags?ref=v2.3.0";
+      url = "github:AhmedSaadi0/ags";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     # hyprland.url = "github:hyprwm/Hyprland";
@@ -191,6 +192,7 @@
       ];
 
       systems.modules.nixos = with inputs; [
+
         home-manager.nixosModules.home-manager
         nur.modules.nixos.default
         # nix-ld.nixosModules.nix-ld
