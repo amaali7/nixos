@@ -43,7 +43,7 @@ in {
       starship
       cava
       imagemagick
-      gnome.gnome-bluetooth
+      gnome-bluetooth
       libdbusmenu-gtk3
       wl-clipboard
       # ------
