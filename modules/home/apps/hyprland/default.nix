@@ -68,20 +68,21 @@ in {
       wlprop
       inputs.hyprland-contrib.packages.${pkgs.system}.hyprprop
       # inputs.kmyc.defaultPackage.${pkgs.system}
+      inputs.ags.packages.${pkgs.system}.agsFull
     ];
     wayland.windowManager.hyprland = {
       enable = true;
       xwayland = enabled;
-      plugins = [
-        inputs.hyprland-plugins.packages.${pkgs.system}.hyprbars
-        inputs.hyprland-plugins.packages.${pkgs.system}.hyprwinwrap
-        inputs.hyprland-plugins.packages.${pkgs.system}.xtra-dispatchers
-        inputs.hyprland-plugins.packages.${pkgs.system}.hyprtrails
-        inputs.hyprland-plugins.packages.${pkgs.system}.hyprexpo
-        inputs.hyprland-plugins.packages.${pkgs.system}.borders-plus-plus
-        inputs.hyprland-plugins.packages.${pkgs.system}.csgo-vulkan-fix
-        inputs.hyprland-plugins.packages.${pkgs.system}.xtra-dispatchers
-      ];
+      # plugins = [
+      #   inputs.hyprland-plugins.packages.${pkgs.system}.hyprbars
+      #   inputs.hyprland-plugins.packages.${pkgs.system}.hyprwinwrap
+      #   inputs.hyprland-plugins.packages.${pkgs.system}.xtra-dispatchers
+      #   inputs.hyprland-plugins.packages.${pkgs.system}.hyprtrails
+      #   inputs.hyprland-plugins.packages.${pkgs.system}.hyprexpo
+      #   inputs.hyprland-plugins.packages.${pkgs.system}.borders-plus-plus
+      #   inputs.hyprland-plugins.packages.${pkgs.system}.csgo-vulkan-fix
+      #   inputs.hyprland-plugins.packages.${pkgs.system}.xtra-dispatchers
+      # ];
 
       settings = {
         "$mod" = "SUPER";
