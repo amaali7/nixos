@@ -8,7 +8,7 @@ in {
   };
 
   config = mkIf cfg.enable {
-    environment.sessionVariables = { QT_QPA_PLATFORMTHEME = "kde"; };
+    environment.sessionVariables = { QT_QPA_PLATFORMTHEME = "qt6ct"; };
 
     environment.systemPackages = with pkgs;
       with pkgs.amaali7; [
