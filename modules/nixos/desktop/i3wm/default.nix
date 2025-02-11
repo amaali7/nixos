@@ -27,14 +27,14 @@ in {
             lm_sensors
             smartmontools
             foot
-            # rofi
+            rofi
             imagemagick
             sassc
             # picom-pijulius
             picom
             wezterm
             material-icons
-            # material-symbols
+            material-symbols
           ];
         };
       };
