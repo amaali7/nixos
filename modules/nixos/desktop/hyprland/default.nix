@@ -9,6 +9,7 @@ in {
   };
 
   config = mkIf cfg.enable {
+    environment.sessionVariables = { QT_QPA_PLATFORMTHEME = "qt6ct"; };
     programs.hyprland = {
       enable = true;
       xwayland = enabled;
