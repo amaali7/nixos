@@ -47,19 +47,7 @@ in {
         enable = true;
         user = "ai3wm";
       };
-      sddm = {
-        enable = true;
-        wayland = disabled;
-        # package = pkgs.kdePackages.sddm;
-        # extraPackages = with pkgs;
-        #   [
-        #     kdePackages.qtsvg
-        #     sddm-astronaut
-        #     kdePackages.ffmpegthumbs
-        #     kdePackages.qtvirtualkeyboard
-        #   ];
-        # theme = "cyberpunk";
-      };
+      sddm = { enable = true; };
     };
     services.xserver = enabled;
     services.gvfs.enable = true;

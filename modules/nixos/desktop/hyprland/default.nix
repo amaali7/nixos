@@ -9,8 +9,12 @@ in {
   };
 
   config = mkIf cfg.enable {
+    hardware.graphics = {
+      enable32Bit = true;
+      enable = true;
+    };
     environment.sessionVariables =
-      lib.mkForce { QT_QPA_PLATFORMTHEME = "qt6ct"; };
+      lib.mkForce { QT_QPA_PLATFORMTHEME = "qtct"; };
     programs.hyprland = {
       enable = true;
       xwayland = enabled;

@@ -12,7 +12,7 @@ in {
 
   config = mkIf cfg.enable {
     qt.enable = true;
-    qt.platformTheme = "qtct";
+    qt.platformTheme.name = "qtct";
     # home.file."${config.xdg.configHome}" = {
     #   source = config.lib.file.mkOutOfStoreSymlink "${homeD}/.dotfiles/config/";
     #   recursive = true;
