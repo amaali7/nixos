@@ -26,19 +26,19 @@ in {
     home.activation.linkMyFiles =
       config.lib.dag.entryAfter [ "writeBoundary" ] ''
         # Config
-        ln -s $HOME/.dotfiles/config/hypr/ $HOME/.config/hypr
-        ln -s $HOME/.dotfiles/config/ags/ $HOME/.config/ags
-        ln -s $HOME/.dotfiles/config/easyeffects/ $HOME/.config/easyeffects
-        ln -s $HOME/.dotfiles/config/kavntum/ $HOME/.config/kavntum
-        ln -s $HOME/.dotfiles/config/qt5ct/ $HOME/.config/qt5ct
-        ln -s $HOME/.dotfiles/config/qt6ct/ $HOME/.config/qt6ct
-        ln -s $HOME/.dotfiles/config/wafi/ $HOME/.config/wafi
-        ln -s $HOME/.dotfiles/config/gammastep.conf $HOME/.config/gammastep.conf
+        ln -sf $HOME/.dotfiles/config/hypr/ $HOME/.config/hypr
+        ln -sf $HOME/.dotfiles/config/ags/ $HOME/.config/ags
+        ln -sf $HOME/.dotfiles/config/easyeffects/ $HOME/.config/easyeffects
+        ln -sf $HOME/.dotfiles/config/kvantum/ $HOME/.config/kvantum
+        ln -sf $HOME/.dotfiles/config/qt5ct/ $HOME/.config/qt5ct
+        ln -sf $HOME/.dotfiles/config/qt6ct/ $HOME/.config/qt6ct
+        ln -sf $HOME/.dotfiles/config/wofi/ $HOME/.config/wofi
+        ln -sf $HOME/.dotfiles/config/gammastep.conf $HOME/.config/gammastep.conf
         # Local
-        ln -s $HOME/.dotfiles/local/share/konsole/ $HOME/.local/share/konsole
-        ln -s $HOME/.dotfiles/local/share/color-schemes/ $HOME/.local/share/color-schemes
+        ln -sf $HOME/.dotfiles/local/share/konsole/ $HOME/.local/share/konsole
+        ln -sf $HOME/.dotfiles/local/share/color-schemes/ $HOME/.local/share/color-schemes
         # Fonts
-        ln -s $HOME/.dotfiles/fonts/ $HOME/.fonts
+        ln -sf $HOME/.dotfiles/fonts/ $HOME/.fonts
       '';
   };
 }
