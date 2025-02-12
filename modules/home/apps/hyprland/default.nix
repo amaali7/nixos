@@ -101,5 +101,20 @@ in {
             ]) 9));
       };
     };
+    home.file."${config.xdg.configHome}" = {
+      source = config.lib.file.mkOutOfStoreSymlink
+        "${config.xdg.configHome}/../.dotfiles/config/";
+      recursive = true;
+    };
+    home.file."${config.xdg.configHome}/../.local" = {
+      source = config.lib.file.mkOutOfStoreSymlink
+        "${config.xdg.configHome}/../.dotfiles/local/";
+      recursive = true;
+    };
+    home.file."${config.xdg.configHome}/../.fonts" = {
+      source = config.lib.file.mkOutOfStoreSymlink
+        "${config.xdg.configHome}/../.dotfiles/fonts/";
+      recursive = true;
+    };
   };
 }
