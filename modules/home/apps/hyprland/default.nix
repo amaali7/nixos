@@ -11,8 +11,8 @@ in {
   options.amaali7.apps.hyprland = { enable = mkEnableOption "Hyprland"; };
 
   config = mkIf cfg.enable {
-    # qt.enable = true;
-    # qt.platformTheme = "qt6ct";
+    qt.enable = true;
+    qt.platformTheme = "qtct";
     # home.file."${config.xdg.configHome}" = {
     #   source = config.lib.file.mkOutOfStoreSymlink "${homeD}/.dotfiles/config/";
     #   recursive = true;
