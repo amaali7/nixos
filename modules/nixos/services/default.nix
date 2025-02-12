@@ -47,7 +47,7 @@ in {
         enable = true;
         user = "ai3wm";
       };
-      sddm = { enable = true; };
+      gdm = { enable = true; };
     };
     services.xserver = enabled;
     services.gvfs.enable = true;

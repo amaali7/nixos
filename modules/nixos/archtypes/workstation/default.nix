@@ -46,7 +46,7 @@ in {
           targets.genericLinux.enable = true;
           home = {
             sessionVariables = {
-              QT_XCB_GL_INTEGRATION = "none"; # kde-connect
+              # QT_XCB_GL_INTEGRATION = "none"; # kde-connect
               EDITOR = "nvim";
               VISUAL = "neovide";
               # BROWSER = "flatpak run org.mozilla.firefox";
