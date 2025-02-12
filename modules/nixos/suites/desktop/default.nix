@@ -14,7 +14,7 @@ in {
     amaali7 = {
       desktop = {
         i3wm = enabled;
-        # hyprland = enabled;
+        hyprland = enabled;
       };
 
       apps = {
