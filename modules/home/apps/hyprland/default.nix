@@ -120,7 +120,7 @@ in {
         # Config
         ln -s $HOME/.dotfiles/config/hypr/ $HOME/.config/hypr
         ln -s $HOME/.dotfiles/config/ags/ $HOME/.config/ags
-        ln -s $HOME/.dotfiles/config/easyeffects/ $HOME/.config/easyeffects/
+        ln -s $HOME/.dotfiles/config/easyeffects/ $HOME/.config/easyeffects
         ln -s $HOME/.dotfiles/config/kavntum/ $HOME/.config/kavntum
         ln -s $HOME/.dotfiles/config/qt5ct/ $HOME/.config/qt5ct
         ln -s $HOME/.dotfiles/config/qt6ct/ $HOME/.config/qt6ct
