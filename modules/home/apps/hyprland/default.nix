@@ -118,19 +118,19 @@ in {
     home.activation.linkMyFiles =
       config.lib.dag.entryAfter [ "writeBoundary" ] ''
         # Config
-        ln -s $HOME/.dotfiles/config/hypr/ $HOME/.config/hypr/
-        ln -s $HOME/.dotfiles/config/ags/ $HOME/.config/ags/
+        ln -s $HOME/.dotfiles/config/hypr/ $HOME/.config/hypr
+        ln -s $HOME/.dotfiles/config/ags/ $HOME/.config/ags
         ln -s $HOME/.dotfiles/config/easyeffects/ $HOME/.config/easyeffects/
-        ln -s $HOME/.dotfiles/config/kavntum/ $HOME/.config/kavntum/
-        ln -s $HOME/.dotfiles/config/qt5ct/ $HOME/.config/qt5ct/
-        ln -s $HOME/.dotfiles/config/qt6ct/ $HOME/.config/qt6ct/
-        ln -s $HOME/.dotfiles/config/wafi/ $HOME/.config/wafi/
+        ln -s $HOME/.dotfiles/config/kavntum/ $HOME/.config/kavntum
+        ln -s $HOME/.dotfiles/config/qt5ct/ $HOME/.config/qt5ct
+        ln -s $HOME/.dotfiles/config/qt6ct/ $HOME/.config/qt6ct
+        ln -s $HOME/.dotfiles/config/wafi/ $HOME/.config/wafi
         ln -s $HOME/.dotfiles/config/gammastep.conf $HOME/.config/gammastep.conf
         # Local
-        ln -s $HOME/.dotfiles/local/share/konsole/ $HOME/.local/share/konsole/
-        ln -s $HOME/.dotfiles/local/share/color-schemes/ $HOME/.local/share/color-schemes/
+        ln -s $HOME/.dotfiles/local/share/konsole/ $HOME/.local/share/konsole
+        ln -s $HOME/.dotfiles/local/share/color-schemes/ $HOME/.local/share/color-schemes
         # Fonts
-        ln -s $HOME/.dotfiles/fonts/ $HOME/.fonts/
+        ln -s $HOME/.dotfiles/fonts/ $HOME/.fonts
       '';
   };
 }
