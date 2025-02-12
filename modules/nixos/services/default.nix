@@ -42,14 +42,7 @@ in {
     services.postgresql.enable = true;
     services.teamviewer.enable = true;
     services.libinput.enable = true;
-    services.displayManager = {
-      autoLogin = {
-        enable = true;
-        user = "ai3wm";
-      };
-      gdm = { enable = true; };
-    };
-    services.xserver = enabled;
+    services.xserver.displayManager.gdm = enabled;
     services.gvfs.enable = true;
     services.acpid.enable = true;
     services.printing.enable = true;
