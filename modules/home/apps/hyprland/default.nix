@@ -3,6 +3,8 @@
 let
   inherit (lib) mkEnableOption mkIf;
   inherit (lib.amaali7) enabled;
+  user = config.amaali7.user;
+  homeD = if user.name == null then null else "/home/${user.name}";
 
   cfg = config.amaali7.apps.hyprland;
 in {
@@ -102,18 +104,15 @@ in {
       };
     };
     home.file."${config.xdg.configHome}" = {
-      source = config.lib.file.mkOutOfStoreSymlink
-        "${config.xdg.configHome}/../.dotfiles/config/";
+      source = config.lib.file.mkOutOfStoreSymlink "${homeD}/.dotfiles/config/";
       recursive = true;
     };
-    home.file."${config.xdg.configHome}/../.local" = {
-      source = config.lib.file.mkOutOfStoreSymlink
-        "${config.xdg.configHome}/../.dotfiles/local/";
+    home.file.".local" = {
+      source = config.lib.file.mkOutOfStoreSymlink "${homeD}/.dotfiles/local/";
       recursive = true;
     };
-    home.file."${config.xdg.configHome}/../.fonts" = {
-      source = config.lib.file.mkOutOfStoreSymlink
-        "${config.xdg.configHome}/../.dotfiles/fonts/";
+    home.file.".fonts" = {
+      source = config.lib.file.mkOutOfStoreSymlink "${homeD}/.dotfiles/fonts/";
       recursive = true;
     };
   };
