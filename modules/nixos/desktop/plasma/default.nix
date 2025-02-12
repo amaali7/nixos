@@ -8,28 +8,10 @@ in {
   };
 
   config = mkIf cfg.enable {
-    services.desktopManager.plasma6 = {
-      enable = true;
-      enableQt5Integration = true;
-    };
     environment.systemPackages = with pkgs; [
       kdePackages.krohnkite
       qt6Packages.qtstyleplugin-kvantum
       kdePackages.qtstyleplugin-kvantum
     ];
-    systemd.user.services = {
-      plasma-kwin_x11 = { enable = false; };
-      plasma-i3 = {
-        enable = true;
-        description = "Launch Plasma with i3";
-        before = [ "plasma-workspace.target" ];
-        wantedBy = [ "plasma-workspace.target" ];
-        serviceConfig = {
-          Type = "oneshot";
-          ExecStart = "${pkgs.i3}/usr/bin/i3";
-          Restart = "on-failure";
-        };
-      };
-    };
   };
 }
