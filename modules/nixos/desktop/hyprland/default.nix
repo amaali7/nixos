@@ -25,7 +25,7 @@ in {
       strawberry
       nwg-look
       blueman
-      qt6Packages.qtstyleplugin-kvantum
+      # qt6Packages.qtstyleplugin-kvantum
       kdePackages.qtstyleplugin-kvantum
       kdePackages.konsole
       kdePackages.plasma-workspace
