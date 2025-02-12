@@ -1,7 +1,7 @@
 { lib, pkgs, config, inputs, ... }:
 
 let
-  inherit (lib) mkEnableOption mkIf;
+  inherit (lib) mkEnableOption mkIf mkForce;
   inherit (lib.amaali7) enabled;
   user = config.amaali7.user;
   homeD = if user.name == null then null else "/home/${user.name}";
@@ -76,8 +76,8 @@ in {
     wayland.windowManager.hyprland = {
       enable = true;
       systemd = {
-        variables = [ ];
-        enable = true;
+        variables = mkForce [ ];
+        enable = mkForce true;
       };
       xwayland = enabled;
       # plugins = [
