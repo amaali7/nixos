@@ -29,7 +29,7 @@ in {
         ln -snf $HOME/.dotfiles/config/hypr/ $HOME/.config/hypr
         ln -snf $HOME/.dotfiles/config/ags/ $HOME/.config/ags
         ln -snf $HOME/.dotfiles/config/easyeffects/ $HOME/.config/easyeffects
-        ln -snf $HOME/.dotfiles/config/kvantum/ $HOME/.config/kvantum
+        ln -snf $HOME/.dotfiles/config/Kvantum/ $HOME/.config/Kvantum
         ln -snf $HOME/.dotfiles/config/qt5ct/ $HOME/.config/qt5ct
         ln -snf $HOME/.dotfiles/config/qt6ct/ $HOME/.config/qt6ct
         ln -snf $HOME/.dotfiles/config/wofi/ $HOME/.config/wofi
