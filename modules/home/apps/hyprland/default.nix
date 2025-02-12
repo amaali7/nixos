@@ -75,7 +75,6 @@ in {
     wayland.windowManager.hyprland = {
       enable = true;
       package = null;
-      portalPackage = null;
       xwayland = enabled;
       # plugins = [
       #   inputs.hyprland-plugins.packages.${pkgs.system}.hyprbars
