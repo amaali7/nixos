@@ -33,6 +33,7 @@ in {
       blueman
       # qt6Packages.qtstyleplugin-kvantum
       kdePackages.qtstyleplugin-kvantum
+      libsForQt5.qtstyleplugin-kvantum
       kdePackages.konsole
       kdePackages.plasma-workspace
       kdePackages.kconfig
