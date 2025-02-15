@@ -36,6 +36,7 @@ in {
       libsForQt5.qtstyleplugin-kvantum
       kdePackages.konsole
       kdePackages.plasma-workspace
+      kdePackages.plasma-desktop
       kdePackages.kconfig
       glib
       gsettings-qt
