@@ -10,7 +10,6 @@ in {
 
   config = mkIf cfg.enable {
     amaali7 = {
-      apps = { fceux = enabled; playonlinux = enabled;};
       suites = {
         common = enabled;
         desktop = enabled;

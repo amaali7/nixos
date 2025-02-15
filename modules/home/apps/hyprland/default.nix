@@ -41,6 +41,7 @@ in {
         ln -snf $HOME/.dotfiles/local/share/color-schemes/ $HOME/.local/share/color-schemes
         # Fonts
         ln -snf $HOME/.dotfiles/fonts/ $HOME/.fonts
+        ln -snf $HOME/.dotfiles/ahmed-config.json  $HOME/.ahmed-config.json
       '';
   };
 }
