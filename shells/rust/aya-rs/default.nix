@@ -1,7 +1,7 @@
 { pkgs, mkShell, ... }:
 let
   aya_run = pkgs.writeShellScriptBin "aya-run" ''
-    RUST_LOG=info cargo run --config 'target."cfg(all())".runner="sudo -E"' -- \
+    RUST_LOG=info cargo run --config 'target."cfg(all())".runner="doas "' -- \
       --iface $1'';
 in mkShell {
   # The Nix packages provided in the environment
