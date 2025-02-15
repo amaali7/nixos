@@ -37,6 +37,7 @@ in {
       kdePackages.konsole
       kdePackages.plasma-workspace
       kdePackages.plasma-desktop
+      kdePackages.plasma-activities
       kdePackages.kconfig
       glib
       gsettings-qt
