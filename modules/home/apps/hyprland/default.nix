@@ -13,7 +13,10 @@ in {
   config = mkIf cfg.enable {
     amaali7 = {
       apps = {
-        hyprland.themes.aylur-ahmed = enabled;
+        hyprland.themes = {
+          # aylur-ahmed = enabled;
+          hyde = enabled;
+        };
       };
     };
   };

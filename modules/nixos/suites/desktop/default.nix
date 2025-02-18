@@ -19,6 +19,7 @@ in {
 
       apps = {
         firefox = enabled;
+        zen = enabled;
         vlc = enabled;
         logseq = enabled;
         gparted = enabled;
