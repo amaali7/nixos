@@ -19,6 +19,7 @@ in {
     environment.systemPackages = with pkgs; [
       emacs30
       pandoc
+      fira-sans
       graphviz
       markdownlint-cli2
       proselint
