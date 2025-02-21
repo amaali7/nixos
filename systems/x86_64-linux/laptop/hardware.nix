@@ -19,18 +19,18 @@
     luks.devices."root" = {
       device = "/dev/disk/by-uuid/9e56ed11-d281-4439-9b9d-a99eba30c275";
       preLVM = true;
-      allowDiscards = true;
-      keyFile = "/keyfile.bin";
+      # allowDiscards = true;
+      # keyFile = "/keyfile.bin";
     };
     luks.devices."nix-stor" = {
       device = "/dev/disk/by-uuid/17b41ea9-1038-479b-bdbc-147ed1940efe";
       keyFile = "/keyfile.bin";
-      allowDiscards = true;
+      # allowDiscards = true;
     };
     luks.devices."home" = {
       device = "/dev/disk/by-uuid/fdc0aa7c-f4b3-45d9-b4ff-466cb252e2d3";
       keyFile = "/keyfile.bin";
-      allowDiscards = true;
+      # allowDiscards = true;
     };
     secrets = { "keyfile.bin" = "/etc/secrets/initrd/keyfile.bin"; };
   };

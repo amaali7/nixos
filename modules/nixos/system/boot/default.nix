@@ -16,7 +16,7 @@ in {
       enable = true;
       device = "nodev";
       efiSupport = true;
-      enableCryptodisk = true;
+      #      enableCryptodisk = true;
       useOSProber = true;
     };
     boot.plymouth = { enable = true; };
