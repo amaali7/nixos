@@ -7,6 +7,7 @@ in {
     enable = mkBoolOpt false "Whether or not to enable xournalpp.";
   };
 
-  config =
-    mkIf cfg.enable { environment.systemPackages = with pkgs; [ xournalpp ]; };
+  config = mkIf cfg.enable {
+    environment.systemPackages = with pkgs; [ poppler_utils xournalpp ];
+  };
 }
