@@ -9,7 +9,9 @@ in {
 
   config = mkIf cfg.enable {
     environment.systemPackages = with pkgs;
-      with pkgs.amaali7;
-      [ libreoffice-qt ];
+      with pkgs.amaali7; [
+        libreoffice-qt
+        jre8
+      ];
   };
 }
