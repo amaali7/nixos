@@ -5,7 +5,7 @@
 # {
 #   inherit (channels.unstable) freetube;
 # }
-{ channels, ... }:
+{ freetube, ... }:
 
 final: prev: {
 
