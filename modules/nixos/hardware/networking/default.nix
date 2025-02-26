@@ -11,7 +11,7 @@ in {
   };
 
   config = mkIf cfg.enable {
-    amaali7.user.extraGroups = [ "networkmanager" ];
+    amaali7.user.extraGroups = [ "networkmanager" "plugdev" ];
 
     networking = {
       hosts = {
