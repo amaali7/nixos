@@ -8,6 +8,7 @@ in {
     enable = mkBoolOpt false "Whether or not to enable FreeTube.";
   };
 
-  config =
-    mkIf cfg.enable { environment.systemPackages = with pkgs; [ freetube ]; };
+  config = mkIf cfg.enable {
+    environment.systemPackages = with pkgs.amaali7; [ freetube-next ];
+  };
 }
