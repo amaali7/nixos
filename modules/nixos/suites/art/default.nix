@@ -13,7 +13,8 @@ in {
       apps = {
         gimp = enabled;
         inkscape = enabled;
-        blender = enabled; 
+        blender = enabled;
+        ascii-art = enabled;
       };
     };
   };

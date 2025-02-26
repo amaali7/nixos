@@ -10,7 +10,7 @@
 final: prev: {
 
   #inherit (channels.unstable) freetube;
-  freetube = prev.freetube // rec {
+  final.freetube = prev.freetube // rec {
     version = "0.23.2";
 
     src = prev.fetchFromGitHub {
