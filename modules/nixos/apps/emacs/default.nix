@@ -18,6 +18,7 @@ in {
     # };
     environment.systemPackages = with pkgs; [
       emacs30
+      ispell
       pandoc
       fira-sans
       graphviz
