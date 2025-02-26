@@ -10,7 +10,7 @@ in {
 
   config = mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
-      amaali7.probe-rs-udev-rules
+
       rust-script
       rustup
       diesel-cli
@@ -18,5 +18,7 @@ in {
       sqlite.dev
       cargo-generate
     ];
+    services.udev.packages = with pkgs; [ amaali7.probe-rs-udev-rules ];
+
   };
 }
