@@ -1,7 +1,7 @@
 { pkgs, mkShell, ... }:
 
 mkShell {
-  packages = with pkgs; [ openssl cargo-xbuild rust-bindgen ];
+  packages = with pkgs; [ openssl cargo-xbuild rust-bindgen probe-rs-tools ];
 
   shellHook = ''
     export DEBUG=1
