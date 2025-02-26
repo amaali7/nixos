@@ -10,6 +10,7 @@ in {
 
   config = mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
+      amaali7.probe-rs-udev-rules
       rust-script
       rustup
       diesel-cli
