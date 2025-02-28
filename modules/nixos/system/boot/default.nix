@@ -12,13 +12,15 @@ in {
     # Bootloader.
     boot.loader.efi.canTouchEfiVariables = true;
     boot.loader.efi.efiSysMountPoint = "/boot/efi";
-    boot.loader.grub = {
-      enable = true;
-      device = "nodev";
-      efiSupport = true;
-      enableCryptodisk = true;
-      useOSProber = true;
-    };
+    # boot.loader.grub = {
+    #   enable = true;
+    #   device = "nodev";
+    #   efiSupport = true;
+    #   enableCryptodisk = true;
+    #   useOSProber = true;
+    # };
+    boot.loader.systemd-boot.enable = true;
+    boot.loader.systemd-boot.consoleMode = "auto";
     boot.plymouth = { enable = true; };
     # for build raspberry pi image 
     boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
