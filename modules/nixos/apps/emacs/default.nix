@@ -16,16 +16,6 @@ in {
     #     package = pkgs.emacs29;
     #   };
     # };
-    environment.systemPackages = with pkgs; [
-      emacs30
-      ispell
-      pandoc
-      fira-sans
-      graphviz
-      markdownlint-cli2
-      proselint
-      multimarkdown
-      coreutils-prefixed
-    ];
+    environment.systemPackages = with pkgs; [ emacs30 ];
   };
 }

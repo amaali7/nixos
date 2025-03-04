@@ -6,7 +6,10 @@ with lib.${namespace}; {
       enable = true;
       name = "ai3wm";
     };
-    apps = { hyprland = enabled; };
+    apps = {
+      hyprland = enabled;
+      emacs = enabled;
+    };
     cli-apps = { home-manager = enabled; };
   };
 }
