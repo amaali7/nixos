@@ -5,8 +5,15 @@ let
       --iface $1'';
 in mkShell {
   # The Nix packages provided in the environment
-  packages = (with pkgs; [ aya_run bpftools inetutils bpf-linker libllvm ])
-    ++ pkgs.lib.optionals pkgs.stdenv.isDarwin (with pkgs; [ libiconv ]);
+  packages = with pkgs; [
+    aya_run
+    bpftools
+    inetutils
+    bpf-linker
+    libllvm
+    llvmPackages.stdenv
+    llvmPackages.llvm
+  ];
 
   RUST_LOG = "info";
   RUST_BACKTRACE = 1;
