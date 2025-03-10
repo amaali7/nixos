@@ -19,12 +19,8 @@ in mkShell {
 
   RUST_LOG = "info";
   RUST_BACKTRACE = 1;
-  LIBCLANG_PATH = "${pkgs.lib.makeLibraryPath (with pkgs; [
-    libllvm
-    libclang
-    llvmPackages.llvm
-    linux.nativeBuildInputs
-  ])}";
+  LIBCLANG_PATH = "${pkgs.lib.makeLibraryPath
+    (with pkgs; [ libllvm libclang llvmPackages.llvm ])}";
   shellHook = ''
     # Required
     echo "Welcome to nix Aya Rust Shell"
