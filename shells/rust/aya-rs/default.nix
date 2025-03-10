@@ -18,12 +18,13 @@ in mkShell {
     zlib
     ncurses
     libxml2
+    libelf
   ];
 
   RUST_LOG = "info";
   RUST_BACKTRACE = 1;
   LIBCLANG_PATH = "${pkgs.lib.makeLibraryPath
-    (with pkgs; [ libllvm libclang llvmPackages.llvm ])}";
+    (with pkgs; [ libllvm libclang llvmPackages.llvm libelf ])}";
   shellHook = ''
     # Required
     echo "Welcome to nix Aya Rust Shell"
