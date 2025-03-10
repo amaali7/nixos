@@ -8,6 +8,10 @@ in {
   };
 
   config = mkIf cfg.enable {
-    environment.systemPackages = with pkgs; [ gitFull lazygit ];
+    environment.systemPackages = with pkgs; [
+      git-remote-gcrypt
+      gitFull
+      lazygit
+    ];
   };
 }
