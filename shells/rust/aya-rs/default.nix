@@ -11,9 +11,10 @@ in mkShell {
     inetutils
     bpf-linker
     libllvm
-    llvmPackages.stdenv
-    llvmPackages.llvm
-    llvmPackages.llvm.dev
+    llvmPackages_20.llvm
+    llvmPackages_20.stdenv
+    llvmPackages_20.llvm
+    llvmPackages_20.llvm.dev
     linux.nativeBuildInputs
     zlib
     ncurses
@@ -24,7 +25,7 @@ in mkShell {
   RUST_LOG = "info";
   RUST_BACKTRACE = 1;
   LIBCLANG_PATH = "${pkgs.lib.makeLibraryPath
-    (with pkgs; [ libllvm libclang llvmPackages.llvm libelf ])}";
+    (with pkgs; [ libllvm libclang llvmPackages_20.llvm libelf ])}";
   shellHook = ''
     # Required
     echo "Welcome to nix Aya Rust Shell"
