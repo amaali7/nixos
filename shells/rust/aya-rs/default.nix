@@ -15,6 +15,9 @@ in mkShell {
     llvmPackages.llvm
     llvmPackages.llvm.dev
     linux.nativeBuildInputs
+    zlib
+    ncurses
+    libxml2
   ];
 
   RUST_LOG = "info";
