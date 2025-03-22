@@ -49,7 +49,10 @@
     device = "/dev/disk/by-uuid/4ce2e9eb-6bdb-4758-8c62-6a86aa23740c";
     fsType = "ext4";
   };
-
+  zramSwap = {
+    enable = true;
+    memoryMax = 16 * 1024 * 1024 * 1024; # 16 GB ZRAM
+  };
   swapDevices = [ ];
   # virtualisation.docker.enable = true;
   # virtualisation.libvirtd.enable = true;
