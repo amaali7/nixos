@@ -10,6 +10,8 @@ in {
   };
 
   config = mkIf cfg.enable {
+
+    environment.systemPackages = [ pkgs.amaali7.deepseek-cli ];
     programs.dconf.enable = true;
     amaali7 = {
       desktop = {
