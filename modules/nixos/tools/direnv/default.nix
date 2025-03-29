@@ -8,10 +8,17 @@ in {
   };
 
   config = mkIf cfg.enable {
-    environment.systemPackages = with pkgs;
-      with pkgs.amaali7; [
-        direnv
-        nix-direnv
-      ];
+    programs.direnv = {
+      enable = true;
+      nix-direnv = enabled;
+      enableZshIntegration = true;
+      enableBashIntegration = true;
+      loadInNixShell = true;
+      silent = true;
+      direnvrcExtra = ''
+        echo "                   loaded direnv!                   "
+        echo "----------------------------------------------------"
+      '';
+    };
   };
 }
