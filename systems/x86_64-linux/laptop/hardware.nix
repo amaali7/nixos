@@ -10,45 +10,32 @@
   boot.extraModulePackages = [ ];
   boot.plymouth.enable = true;
 
-  fileSystems."/" = {
-    device = "/dev/disk/by-uuid/657ecc0a-8f0f-4803-9a5a-247172b9a008";
-    fsType = "ext4";
-  };
-
-  boot.initrd = {
-    luks.devices."root" = {
-      device = "/dev/disk/by-uuid/9e56ed11-d281-4439-9b9d-a99eba30c275";
-      preLVM = true;
-      # allowDiscards = true;
-      # keyFile = "/keyfile.bin";
+  fileSystems."/" =
+    { device = "/dev/disk/by-uuid/dcb33e21-8f87-4387-bd06-02043c51923a";
+      fsType = "btrfs";
+      options = [ "subvol=root" ];
     };
-    luks.devices."nix-stor" = {
-      device = "/dev/disk/by-uuid/17b41ea9-1038-479b-bdbc-147ed1940efe";
-      keyFile = "/keyfile.bin";
-      # allowDiscards = true;
-    };
-    luks.devices."home" = {
-      device = "/dev/disk/by-uuid/fdc0aa7c-f4b3-45d9-b4ff-466cb252e2d3";
-      keyFile = "/keyfile.bin";
-      # allowDiscards = true;
-    };
-    secrets = { "keyfile.bin" = "/etc/secrets/initrd/keyfile.bin"; };
-  };
 
-  fileSystems."/nix" = {
-    device = "/dev/disk/by-uuid/9894e4b7-33ef-4513-b0c0-5424ba8e464f";
-    fsType = "ext4";
-  };
+  boot.initrd.luks.devices."main".device = "/dev/disk/by-uuid/0ab850d4-fc0f-40cb-98af-67f1fe69584e";
 
-  fileSystems."/boot" = {
-    device = "/dev/disk/by-uuid/BD0C-B202";
-    fsType = "vfat";
-  };
-  # my filesystems
-  fileSystems."/home/ai3wm" = {
-    device = "/dev/disk/by-uuid/4ce2e9eb-6bdb-4758-8c62-6a86aa23740c";
-    fsType = "ext4";
-  };
+  fileSystems."/home" =
+    { device = "/dev/disk/by-uuid/dcb33e21-8f87-4387-bd06-02043c51923a";
+      fsType = "btrfs";
+      options = [ "subvol=home" ];
+    };
+
+  fileSystems."/nix" =
+    { device = "/dev/disk/by-uuid/dcb33e21-8f87-4387-bd06-02043c51923a";
+      fsType = "btrfs";
+      options = [ "subvol=nix" ];
+    };
+
+  fileSystems."/boot" =
+    { device = "/dev/disk/by-uuid/A896-FC69";
+      fsType = "vfat";
+      options = [ "fmask=0022" "dmask=0022" ];
+    };
+    
   zramSwap = {
     enable = true;
     memoryMax = 16 * 1024 * 1024 * 1024; # 16 GB ZRAM
