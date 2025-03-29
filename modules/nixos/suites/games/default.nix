@@ -8,7 +8,7 @@ let
     # openra = enabled;
     aisleriot = enabled;
     # xonotic = enabled;
-    # retroarch = enabled;
+    retroarch = enabled;
   };
 in {
   options.amaali7.suites.games = with types; {
