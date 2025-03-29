@@ -16,7 +16,10 @@ in {
       enableBashIntegration = true;
       loadInNixShell = true;
       silent = true;
-      direnvrcExtra = ''echo "loaded direnv!" '';
+      direnvrcExtra = ''
+        echo "                   loaded direnv!                   "
+        echo "----------------------------------------------------"
+      '';
     };
   };
 }
