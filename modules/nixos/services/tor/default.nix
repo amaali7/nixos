@@ -9,14 +9,5 @@ in {
     enable = mkBoolOpt false "Whether or not to configure tor support.";
   };
 
-  config = mkIf cfg.enable {
-    services.tor = {
-      settings = {
-        UseBridges = true;
-        ClientTransportPlugin = "obfs4 exec ${pkgs.obfs4}/bin/lyrebird";
-        Bridge = "obfs4 IP:ORPort [fingerprint]";
-      };
-      client = enabled;
-    };
-  };
+  config = mkIf cfg.enable { services.tor = { client = enabled; }; };
 }
