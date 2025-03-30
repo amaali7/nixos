@@ -23,6 +23,7 @@ in {
             # Enable system notifications
             "--dbus-user.talk=org.freedesktop.Notifications"
           ];
+          desktop = "${pkgs.librewolf}/share/applications/librewolf.desktop";
         };
         # signal-desktop = {
         #   executable =
