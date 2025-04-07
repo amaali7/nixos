@@ -2,19 +2,19 @@
 let
   netns_up = pkgs.writeShellScriptBin "inet-up" ''
     # Create namespaces
-    doas ip netns add red
-    doas ip netns add blue
+     ip netns add red
+     ip netns add blue
 
     # Create veth pair (veth-red <--> veth-blue)
-    doas ip link add veth-red type veth peer name veth-blue
+     ip link add veth-red type veth peer name veth-blue
 
     # Move interfaces to respective namespaces
-    doas ip link set veth-red netns red
-    doas ip link set veth-blue netns blue
+     ip link set veth-red netns red
+     ip link set veth-blue netns blue
 
     # Assign IPs (different subnets for isolation)
-    doas ip -n red addr add 192.168.1.1/24 dev veth-red
-    doas ip -n blue addr add 192.168.2.1/24 dev veth-blue
+     ip -n red addr add 192.168.1.1/24 dev veth-red
+     ip -n blue addr add 192.168.2.1/24 dev veth-blue
 
     # Bring them up
     ip -n red link set veth-red up
@@ -43,7 +43,6 @@ in mkShell {
   # The Nix packages provided in the environment
   packages = with pkgs;
     [
-      doas
       aya_run
       netns_up
       netns_down
