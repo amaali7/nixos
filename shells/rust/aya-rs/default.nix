@@ -1,31 +1,34 @@
 { pkgs, mkShell, inputs, ... }:
 let
-  netns_up = pkgs.writeShellScriptBin "dnet-up" ''
-    # Load the dummy kernel module (if not loaded)
-    modprobe dummy
+  netns_up = pkgs.writeShellScriptBin "veth-up" ''
+    # Create two namespaces (ns1 and ns2)
+    ip netns add ns1
+    ip netns add ns2
 
-    # Create first dummy interface (dummy0)
-     ip link add dummy0 type dummy
+    # Create veth pair (veth-ns1 ↔ veth-ns2)
+    ip link add veth-ns1 type veth peer name veth-ns2
 
-    # Create second dummy interface (dummy1)
-     ip link add dummy1 type dummy
+    # Move each end to its namespace
+    ip link set veth-ns1 netns ns1
+    ip link set veth-ns2 netns ns2
 
-    # Assign IP to dummy0
-     ip addr add 192.168.1.1/24 dev dummy0
+    # Configure ns1 side
+    ip netns exec ns1 ip addr add 10.0.0.1/24 dev veth-ns1
+    ip netns exec ns1 ip link set veth-ns1 up
+    ip netns exec ns1 ip link set lo up
 
-    # Assign IP to dummy1
-     ip addr add 192.168.1.2/24 dev dummy1
-
-     ip link set dummy0 up
-     ip link set dummy1 up
+    # Configure ns2 side
+    ip netns exec ns2 ip addr add 10.0.0.2/24 dev veth-ns2
+    ip netns exec ns2 ip link set veth-ns2 up
+    ip netns exec ns2 ip link set lo up
   '';
-  netns_down = pkgs.writeShellScriptBin "dnet-down" ''
-    # Delete namespaces (automatically removes interfaces)
-     ip link del dummy0
-     ip link del dummy1  '';
+  netns_down = pkgs.writeShellScriptBin "veth-down" ''
+    # Delete everything
+    ip netns del ns1
+    ip netns del ns2  '';
   aya_run = pkgs.writeShellScriptBin "aya-run" ''
-    RUST_LOG=info cargo run --config 'target."cfg(all())".runner="doas "' -- \
-      --iface $1'';
+    RUST_LOG=info cargo run --config 'target."cfg(all())".runner="doas ip netns exec ns1 "' -- \
+      --iface veth-ns1'';
 in mkShell {
   # The Nix packages provided in the environment
   packages = with pkgs;
@@ -63,8 +66,8 @@ in mkShell {
     echo "Welcome to nix Aya Rust Shell"
     echo "CMD:"
     echo "   -> aya-run"
-    echo "   -> sudo dnet-up "
-    echo "   -> sudo dnet-down"
-    echo "dnet is dummy interface for testing"
+    echo "   -> sudo veth-up "
+    echo "   -> sudo veth-down"
+    echo "veth is isolated interface for testing"
   '';
 }
