@@ -9,7 +9,7 @@ in {
   options.amaali7.cli-apps.zsh = { enable = mkEnableOption "zsh"; };
 
   config = mkIf cfg.enable {
-    activation.linkZsh = config.lib.dag.entryAfter [ "writeBoundary" ] ''
+    home.activation.linkZsh = config.lib.dag.entryAfter [ "writeBoundary" ] ''
       ln -snf $HOME/.dotfiles/zshrc $HOME/.zshrc
     '';
   };
