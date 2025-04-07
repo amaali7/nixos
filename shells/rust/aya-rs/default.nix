@@ -1,13 +1,51 @@
 { pkgs, mkShell, inputs, ... }:
 let
+  netns_up = pkgs.writeShellScriptBin "inet-up" ''
+    # Create namespaces
+    sudo ip netns add red
+    sudo ip netns add blue
+
+    # Create veth pair (veth-red <--> veth-blue)
+    sudo ip link add veth-red type veth peer name veth-blue
+
+    # Move interfaces to respective namespaces
+    sudo ip link set veth-red netns red
+    sudo ip link set veth-blue netns blue
+
+    # Assign IPs (different subnets for isolation)
+    sudo ip -n red addr add 192.168.1.1/24 dev veth-red
+    sudo ip -n blue addr add 192.168.2.1/24 dev veth-blue
+
+    # Bring them up
+    sudo ip -n red link set veth-red up
+    sudo ip -n blue link set veth-blue up
+
+    # Enable loopback in both namespaces
+    sudo ip -n red link set lo up
+    sudo ip -n blue link set lo up
+
+    # Ping from red to blue (should fail - no route)
+    sudo ip netns exec red ping 192.168.2.1 -c 3
+
+    # Ping from blue to red (should fail)
+    sudo ip netns exec blue ping 192.168.1.1 -c 3
+
+  '';
+  netns_down = pkgs.writeShellScriptBin "inet-down" ''
+    # Delete namespaces (automatically removes interfaces)
+    sudo ip netns del red
+    sudo ip netns del blue
+  '';
   aya_run = pkgs.writeShellScriptBin "aya-run" ''
     RUST_LOG=info cargo run --config 'target."cfg(all())".runner="doas "' -- \
-      --iface $1'';
+      --iface veth-red'';
 in mkShell {
   # The Nix packages provided in the environment
   packages = with pkgs;
     [
       aya_run
+      netns-up
+      netns-down
       bpftools
       inetutils
       bpf-linker
@@ -34,7 +72,9 @@ in mkShell {
     libelf
   ])}";
   shellHook = ''
-    # Required
+        # Required
     echo "Welcome to nix Aya Rust Shell"
+    echo "CMD:"
+    echo "    aya-run - inet-up -inet-down"
   '';
 }
