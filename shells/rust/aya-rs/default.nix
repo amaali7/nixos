@@ -17,24 +17,24 @@ let
     doas ip -n blue addr add 192.168.2.1/24 dev veth-blue
 
     # Bring them up
-    doas ip -n red link set veth-red up
-    doas ip -n blue link set veth-blue up
+    ip -n red link set veth-red up
+     ip -n blue link set veth-blue up
 
     # Enable loopback in both namespaces
-    doas ip -n red link set lo up
-    doas ip -n blue link set lo up
+     ip -n red link set lo up
+     ip -n blue link set lo up
 
     # Ping from red to blue (should fail - no route)
-    doas ip netns exec red ping 192.168.2.1 -c 3
+     ip netns exec red ping 192.168.2.1 -c 3
 
     # Ping from blue to red (should fail)
-    doas ip netns exec blue ping 192.168.1.1 -c 3
+     ip netns exec blue ping 192.168.1.1 -c 3
 
   '';
   netns_down = pkgs.writeShellScriptBin "inet-down" ''
     # Delete namespaces (automatically removes interfaces)
-    doas ip netns del red
-    doas ip netns del blue
+     ip netns del red
+     ip netns del blue
   '';
   aya_run = pkgs.writeShellScriptBin "aya-run" ''
     RUST_LOG=info cargo run --config 'target."cfg(all())".runner="doas "' -- \
