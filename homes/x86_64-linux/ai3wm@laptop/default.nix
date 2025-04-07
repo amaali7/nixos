@@ -10,6 +10,9 @@ with lib.${namespace}; {
       hyprland = enabled;
       emacs = enabled;
     };
-    cli-apps = { home-manager = enabled; };
+    cli-apps = {
+      home-manager = enabled;
+      zsh = enabled;
+    };
   };
 }
