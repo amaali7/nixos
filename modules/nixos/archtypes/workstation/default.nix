@@ -24,7 +24,7 @@ in {
         media = enabled;
         music = enabled;
         office = enabled;
-        networking = enabled;
+        # networking = enabled;
       };
       services = enabled;
 

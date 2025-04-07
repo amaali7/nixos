@@ -55,6 +55,7 @@ in {
 
       system = {
         boot = enabled;
+        ebpf = enabled;
         fonts = enabled;
         locale = enabled;
         time = enabled;
