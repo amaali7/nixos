@@ -37,7 +37,7 @@ let
      ip netns del blue
   '';
   aya_run = pkgs.writeShellScriptBin "aya-run" ''
-    RUST_LOG=info cargo run --config 'target."cfg(all())".runner="doas "' -- \
+    RUST_LOG=info cargo run --config 'target."cfg(all())".runner="doas ip netns exec red "' -- \
       --iface veth-red'';
 in mkShell {
   # The Nix packages provided in the environment
