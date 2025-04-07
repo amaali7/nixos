@@ -14,23 +14,15 @@ in {
       interfaces = {
         "vnet0" = {
           virtual = true;
-          ipv6.addresses = [{
-            address = "2a01:4f8:1c1b:16d0::1";
-            prefixLength = 64;
-          }];
           ipv4.addresses = [{
-            address = "192.168.2.2";
+            address = "10.10.2.1";
             prefixLength = 24;
           }];
         };
         "vnet1" = {
           virtual = true;
-          ipv6.addresses = [{
-            address = "2a01:4f8:1c1b:16d1::1";
-            prefixLength = 64;
-          }];
           ipv4.addresses = [{
-            address = "192.168.3.2";
+            address = "10.10.3.1";
             prefixLength = 24;
           }];
         };
