@@ -44,8 +44,8 @@ in mkShell {
   packages = with pkgs;
     [
       aya_run
-      netns-up
-      netns-down
+      netns_up
+      netns_down
       bpftools
       inetutils
       bpf-linker
