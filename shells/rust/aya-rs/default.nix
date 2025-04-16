@@ -26,7 +26,11 @@ let
     # Delete everything
     ip netns del ns1
     ip netns del ns2  '';
+
   aya_run = pkgs.writeShellScriptBin "aya-run" ''
+    RUST_LOG=info cargo run --config 'target."cfg(all())".runner="doas "' -- \
+      --iface &1'';
+  aya_p_run = pkgs.writeShellScriptBin "aya-p-run" ''
     RUST_LOG=info cargo run --config 'target."cfg(all())".runner="doas ip netns exec ns1 "' -- \
       --iface veth-ns1'';
 in mkShell {
@@ -34,6 +38,7 @@ in mkShell {
   packages = with pkgs;
     [
       aya_run
+      aya_p_run
       netns_up
       netns_down
       bpftools
