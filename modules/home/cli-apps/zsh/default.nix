@@ -12,5 +12,18 @@ in {
     home.activation.linkZsh = config.lib.dag.entryAfter [ "writeBoundary" ] ''
       ln -snf $HOME/.dotfiles/zshrc $HOME/.zshrc
     '';
+    home = {
+      sessionVariables = {
+        # QT_XCB_GL_INTEGRATION = "none"; # kde-connect
+        EDITOR = "nvim";
+        VISUAL = "neovide";
+        # BROWSER = "flatpak run org.mozilla.firefox";
+        TERMINAL = "wezterm";
+        XCURSOR_THEME = "Qogir";
+        NIXPKGS_ALLOW_UNFREE = "1";
+      };
+      sessionPath =
+        [ "$HOME/.local/bin" "$HOME/.cargo/bin/" "$HOME/.npm-packages/bin/" ];
+    };
   };
 }
