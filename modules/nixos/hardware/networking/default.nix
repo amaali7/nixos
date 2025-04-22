@@ -28,6 +28,7 @@ in {
       iw
       dnsmasq
       networkmanagerapplet
+      linux-router
     ];
     # Fixes an issue that normally causes nixos-rebuild to fail.
     # https://github.com/NixOS/nixpkgs/issues/180175
