@@ -43,7 +43,6 @@ in {
       services = {
         printing = enabled;
         openssh = enabled;
-        tor = enabled;
       };
 
       security.enable = true;
