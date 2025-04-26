@@ -14,6 +14,16 @@ in {
     amaali7.user.extraGroups = [ "networkmanager" "plugdev" ];
 
     networking = {
+      firewall = {
+        enable = true;
+        checkReversePath = "loose";
+        allowedTCPPortRanges = [{
+          from = 4321;
+          to = 4323;
+        }];
+        allowedTCPPorts = [ 53 67 ];
+        allowedUDPPorts = [ 53 67 ];
+      };
       hosts = {
         "127.0.0.1" = [ "local.test" ] ++ (cfg.hosts."127.0.0.1" or [ ]);
       } // cfg.hosts;
