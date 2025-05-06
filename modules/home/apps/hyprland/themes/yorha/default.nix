@@ -23,10 +23,11 @@ in {
         swayidle
         theme-sh
         xdg-desktop-portal-hyprland
+        inputs.ags.packages.${pkgs.system}.ags
       ];
       activation.YoRHa = config.lib.dag.entryAfter [ "writeBoundary" ] ''
         # Config
-        for f in $(cd  $HOME/.dotfiles/YoRHa/config/ && ls); do                                                                   ─╯
+        for f in $(cd  $HOME/.dotfiles/YoRHa/config/ && ls); do
           ln -snf $HOME/.dotfiles/YoRHa/config/$f $HOME/.config/$f
         done
 
