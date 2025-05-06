@@ -13,18 +13,29 @@ in {
   config = mkIf cfg.enable {
     amaali7 = { apps = { hyprland.extra.plasma = enabled; }; };
     home = {
-      packages = with pkgs; [
-        foot
-        grim
-        slurp
-        swww
-        light
-        swaylock-effects
-        swayidle
-        theme-sh
-        xdg-desktop-portal-hyprland
-        inputs.ags.packages.${pkgs.system}.ags
-      ];
+      packages = with pkgs;
+        [
+          foot
+          grim
+          slurp
+          swww
+          light
+          swaylock-effects
+          swayidle
+          theme-sh
+          xdg-desktop-portal-hyprland
+          starship
+          imagemagick
+          cava
+          gnome-bluetooth
+          libdbusmenu-gtk3
+          wl-clipboard
+          inputs.ags.packages.${pkgs.system}.ags
+        ] ++ (with pkgs.hyprlandPlugins;
+          [
+            hyprbars
+
+          ]);
       activation.YoRHa = config.lib.dag.entryAfter [ "writeBoundary" ] ''
         # Config
         for f in $(cd  $HOME/.dotfiles/YoRHa/config/ && ls); do

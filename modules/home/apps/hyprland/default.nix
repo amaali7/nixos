@@ -14,8 +14,8 @@ in {
     amaali7 = {
       apps = {
         hyprland.themes = {
-          # yorha = enabled;
-          aylur-ahmed = enabled;
+          yorha = enabled;
+          # aylur-ahmed = enabled;
           # hyde = enabled;
         };
       };
