@@ -10,6 +10,7 @@ let
     # lapce = enabled;
     emacs = enabled;
     tmux = enabled;
+    android = enabled;
     # vscode = enabled;
     # surrealdb = enabled;
     postgres = enabled;
@@ -19,8 +20,7 @@ let
     zellij = enabled;
     neovim = enabled;
   };
-in
-{
+in {
   options.amaali7.suites.development = with types; {
     enable = mkBoolOpt false
       "Whether or not to enable common development configuration.";

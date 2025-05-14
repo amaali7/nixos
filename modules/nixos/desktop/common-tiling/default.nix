@@ -34,7 +34,7 @@ in {
         acpi
         dunst
         # Rust Base
-        # yazi
+        yazi
         lsd
       ];
   };
