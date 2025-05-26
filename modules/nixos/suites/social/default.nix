@@ -14,6 +14,7 @@ in {
         element = enabled;
         telegram = enabled;
         whatsapp = enabled;
+        caprine = enabled;
       };
     };
   };
