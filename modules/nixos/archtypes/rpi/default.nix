@@ -39,8 +39,8 @@ in {
       user = {
         name = "pi";
         initialPassword = "pi";
-        group = "wheel";
-        isNormalUser = true;
+        # group = "wheel";
+        # isNormalUser = true;
       };
     };
   };
