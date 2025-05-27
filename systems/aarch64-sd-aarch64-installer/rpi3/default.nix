@@ -4,20 +4,20 @@ with lib;
 with lib.amaali7; {
   imports = [ (modulesPath + "/installer/sd-card/sd-image.nix") ];
 
-  fileSystems."/" = lib.mkDefault {
-    device = "/dev/disk/by-label/ROOT";
-    fsType = "ext4";
-  };
+  # fileSystems."/" = lib.mkDefault {
+  #   device = "/dev/disk/by-label/ROOT";
+  #   fsType = "ext4";
+  # };
 
-  fileSystems."/boot" = lib.mkDefault {
-    device = "/dev/disk/by-label/BOOT";
-    fsType = "vfat";
-  };
+  # fileSystems."/boot" = lib.mkDefault {
+  #   device = "/dev/disk/by-label/BOOT";
+  #   fsType = "vfat";
+  # };
 
-  fileSystems."/data" = lib.mkDefault {
-    device = "/dev/disk/by-label/DATA";
-    fsType = "ext4";
-  };
+  # fileSystems."/data" = lib.mkDefault {
+  #   device = "/dev/disk/by-label/DATA";
+  #   fsType = "ext4";
+  # };
 
   sdImage = { compressImage = false; };
 
