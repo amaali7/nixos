@@ -21,16 +21,6 @@ in {
       loader = {
         grub.enable = false;
         generic-extlinux-compatible.enable = true;
-        raspberryPi = {
-          firmwareConfig = ''
-            dtparam=audio=on
-            start_x=1
-            gpu_mem=256
-          '';
-          enable = true;
-          version = 3;
-          uboot.enable = true;
-        };
       };
     };
     systemd.services.btattach = {
