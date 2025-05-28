@@ -10,7 +10,7 @@ in {
 
   config = mkIf cfg.enable {
     boot = {
-      kernelPackages = pkgs.linuxKernel.kernels.linux_rpi3;
+      # kernelPackages = pkgs.linuxKernel.kernels.linux_rpi3;
       kernelParams = [ "cma=256M" "console=ttyS1,115200n8" ];
       initrd = {
         # availableKernelModules = [ "xhci_pci" "usbhid" "usb_storage" ];
