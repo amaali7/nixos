@@ -13,7 +13,8 @@ in {
       # kernelPackages = pkgs.linuxKernel.packages.linux_rpi3;
       kernelParams = [ "cma=320M" ];
       initrd = {
-        availableKernelModules = [ "xhci_pci" "usbhid" "usb_storage" ];
+        # availableKernelModules = [ "xhci_pci" "usbhid" "usb_storage" ];
+        availableKernelModules = [ "xhci_pci" ];
         kernelModules = [ "vc4" "bcm2835_dma" ];
 
       };
@@ -22,10 +23,10 @@ in {
         generic-extlinux-compatible.enable = true;
       };
     };
-    services.xserver = {
-      enable = true;
-      displayManager = { lightdm = enabled; };
-    };
+    # services.xserver = {
+    #   enable = true;
+    #   displayManager = { lightdm = enabled; };
+    # };
     networking.wireless = disabled;
     amaali7 = {
       nix = enabled;
