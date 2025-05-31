@@ -1,4 +1,4 @@
-{ options, config, lib, pkgs, ... }:
+{ options, config, lib, pkgs, inputs, ... }:
 
 with lib;
 with lib.amaali7;
@@ -9,6 +9,29 @@ in {
   };
 
   config = mkIf cfg.enable {
+    # boot.kernelPackages = lib.mkDefault pkgs.linuxKernel.packages.linux_rpi3;
+
+    # fix the following error :
+    # modprobe: FATAL: Module ahci not found in directory
+    # https://github.com/NixOS/nixpkgs/issues/154163#issuecomment-1350599022
+    nixpkgs.overlays = [
+      (_final: super: {
+        makeModulesClosure = x:
+          super.makeModulesClosure (x // { allowMissing = true; });
+      })
+    ];
+
+    # https://github.com/NixOS/nixpkgs/blob/b72bde7c4a1f9c9bf1a161f0c267186ce3c6483c/nixos/modules/installer/sd-card/sd-image-aarch64.nix#L12
+    # Use the extlinux boot loader. (NixOS wants to enable GRUB by default)
+    boot.loader.grub.enable = lib.mkDefault false;
+    # Enables the generation of /boot/extlinux/extlinux.conf
+    boot.loader.generic-extlinux-compatible.enable = lib.mkDefault true;
+
+    # The last console argument in the list that linux can find at boot will receive kernel logs.
+    # The serial ports listed here are:
+    # - ttyS0: serial
+    # - tty0: hdmi
+    boot.kernelParams = [ "console=ttyS0,115200n8" "console=tty0" ];
     documentation.nixos.enable = false;
     nix.settings.trusted-users = [ "@wheel" ];
     services.zram-generator = {
@@ -26,17 +49,17 @@ in {
           modDirVersion = "6.6.31-v8";
         };
       });
-      kernelParams = [ "cma=256M" "console=ttyS1,115200n8" ];
+      # kernelParams = [ "cma=256M" "console=ttyS1,115200n8" ];
       initrd = {
         # availableKernelModules = [ "xhci_pci" "usbhid" "usb_storage" ];
         availableKernelModules = [ "xhci_pci" "usbhid" "usb_storage" ];
         kernelModules = [ "vc4" "bcm2835_dma" "bcm2835-v4l2" "i2c_bcm2835" ];
 
       };
-      loader = {
-        grub.enable = false;
-        generic-extlinux-compatible.enable = true;
-      };
+      # loader = {
+      #   grub.enable = false;
+      #   generic-extlinux-compatible.enable = true;
+      # };
       # Avoids warning: mdadm: Neither MAILADDR nor PROGRAM has been set.
       # This will cause the `mdmon` service to crash.
       # See: https://github.com/NixOS/nixpkgs/issues/254807
@@ -118,7 +141,7 @@ in {
       tools.git = enabled;
       user = {
         name = "nixos";
-        initialPassword = "nixos";
+        # initialPassword = "nixos";
         extraOptions = {
           group = "wheel";
           isNormalUser = true;
