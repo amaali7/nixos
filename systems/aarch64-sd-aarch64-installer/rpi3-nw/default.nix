@@ -22,7 +22,7 @@ with lib.amaali7; {
       log-lines = 50;
       sandbox = "relaxed";
       auto-optimise-store = true;
-      allowed-users = users;
+      allowed-users = [ "nixos" ];
       trusted-users = [ "@wheel" ];
 
       keep-outputs = true;
@@ -51,15 +51,18 @@ with lib.amaali7; {
   sdImage.compressImage = false;
   boot.initrd.kernelModules = [ "vc4" "bcm2835_dma" "i2c_bcm2835" ];
   boot.kernelParams = [ "cma=320M" ];
+  networking.hostName = "nixos-pc";
   services.avahi = {
     enable = true;
-    nssmdns = true; # Allows hostname resolution via `.local`
-    publish = { # Optional: Advertise the machine's services
+    nssmdns = true;
+    publish = {
       enable = true;
       addresses = true;
       workstation = true;
     };
+    extraServiceFiles.ssh = "${pkgs.avahi}/etc/avahi/services/ssh.service";
   };
+  networking.firewall.allowedUDPPorts = [ 5353 ];};
   services.zram-generator = {
     enable = true;
     settings.zram0 = {
@@ -92,8 +95,8 @@ with lib.amaali7; {
 
   ];
   services = {
-    displayManager.startx.enable = true;
     xserver = {
+      displayManager.startx.enable = true;
       enable = true;
       windowManager.i3 = enabled;
     };

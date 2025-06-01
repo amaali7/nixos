@@ -24,7 +24,7 @@ in {
         };
       };
     };
-
+    amaali7 = { apps = { avahi = enabled; }; };
     # enable location service
     location.provider = "geoclue2";
     # from amaali7
