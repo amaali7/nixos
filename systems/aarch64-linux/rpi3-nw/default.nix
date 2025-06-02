@@ -12,10 +12,11 @@ with lib.amaali7; {
         # Raspberry Pi requires a specific bootloader.
         enable = mkForce false;
       };
-      hardware = {
-        storage = disabled;
-        networking = disabled;
-      };
+
+    };
+    hardware = {
+      storage = disabled;
+      networking = disabled;
     };
   };
   imports = [
