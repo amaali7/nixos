@@ -2,9 +2,9 @@
 
 with lib;
 with lib.amaali7;
-let cfg = config.amaali7.archetypes.server;
+let cfg = config.amaali7.archtypes.server;
 in {
-  options.amaali7.archetypes.server = with types; {
+  options.amaali7.archtypes.server = with types; {
     enable = mkBoolOpt false "Whether or not to enable the server archetype.";
   };
 
