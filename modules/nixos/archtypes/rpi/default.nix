@@ -9,31 +9,39 @@ in {
   };
 
   config = mkIf cfg.enable {
-    # boot.kernelPackages = lib.mkDefault pkgs.linuxKernel.packages.linux_rpi3;
+    nix = {
+      settings = {
+        substituters = [ "https://nix-community.cachix.org" ];
+        trusted-public-keys = [
+          "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+        ];
+        experimental-features = "nix-command flakes";
+        http-connections = 50;
+        warn-dirty = false;
+        log-lines = 50;
+        sandbox = "relaxed";
+        auto-optimise-store = true;
+        allowed-users = [ "nixos" ];
+        trusted-users = [ "@wheel" ];
+      };
+    };
+    nixpkgs = { config = { allowUnfree = true; }; };
 
-    # fix the following error :
-    # modprobe: FATAL: Module ahci not found in directory
-    # https://github.com/NixOS/nixpkgs/issues/154163#issuecomment-1350599022
-    nixpkgs.overlays = [
-      (_final: super: {
-        makeModulesClosure = x:
-          super.makeModulesClosure (x // { allowMissing = true; });
-      })
-    ];
-
-    # https://github.com/NixOS/nixpkgs/blob/b72bde7c4a1f9c9bf1a161f0c267186ce3c6483c/nixos/modules/installer/sd-card/sd-image-aarch64.nix#L12
-    # Use the extlinux boot loader. (NixOS wants to enable GRUB by default)
-    boot.loader.grub.enable = lib.mkDefault false;
-    # Enables the generation of /boot/extlinux/extlinux.conf
-    boot.loader.generic-extlinux-compatible.enable = lib.mkDefault true;
-
-    # The last console argument in the list that linux can find at boot will receive kernel logs.
-    # The serial ports listed here are:
-    # - ttyS0: serial
-    # - tty0: hdmi
-    boot.kernelParams = [ "console=ttyS0,115200n8" "console=tty0" ];
-    documentation.nixos.enable = false;
-    nix.settings.trusted-users = [ "@wheel" ];
+    # These options make the sd card image build faster
+    boot.supportedFilesystems.zfs = lib.mkForce false;
+    boot.initrd.kernelModules = [ "vc4" "bcm2835_dma" "i2c_bcm2835" ];
+    boot.kernelParams = [ "cma=320M" ];
+    services.avahi = {
+      enable = true;
+      nssmdns = true;
+      publish = {
+        enable = true;
+        addresses = true;
+        workstation = true;
+      };
+      extraServiceFiles.ssh = "${pkgs.avahi}/etc/avahi/services/ssh.service";
+    };
+    networking.firewall.allowedUDPPorts = [ 5353 ];
     services.zram-generator = {
       enable = true;
       settings.zram0 = {
@@ -41,41 +49,11 @@ in {
         zram-size = "ram * 2";
       };
     };
-    boot = {
-      # kernelPackages = pkgs.linuxKernel.kernels.linux_rpi3;
-      kernelPackages = pkgs.linuxPackages_rpi3.extend (self: super: {
-        kernel = super.kernel.override {
-          # Your overrides here
-          modDirVersion = "6.6.31-v8";
-        };
-      });
-      # kernelParams = [ "cma=256M" "console=ttyS1,115200n8" ];
-      initrd = {
-        # availableKernelModules = [ "xhci_pci" "usbhid" "usb_storage" ];
-        availableKernelModules = [ "xhci_pci" "usbhid" "usb_storage" ];
-        kernelModules = [ "vc4" "bcm2835_dma" "bcm2835-v4l2" "i2c_bcm2835" ];
 
-      };
-      # loader = {
-      #   grub.enable = false;
-      #   generic-extlinux-compatible.enable = true;
-      # };
-      # Avoids warning: mdadm: Neither MAILADDR nor PROGRAM has been set.
-      # This will cause the `mdmon` service to crash.
-      # See: https://github.com/NixOS/nixpkgs/issues/254807
-      swraid.enable = lib.mkForce false;
-    };
-    systemd.services.btattach = {
-      before = [ "bluetooth.service" ];
-      after = [ "dev-ttyAMA0.device" ];
-      wantedBy = [ "multi-user.target" ];
-      serviceConfig = {
-        ExecStart =
-          "${pkgs.bluez}/bin/btattach -B /dev/ttyAMA0 -P bcm -S 3000000";
-      };
-    };
+    # Replace networkd with NetworkManager at your discretion
     networking = { };
     networking = {
+      useNetworkd = true;
       interfaces."wlan0".useDHCP = true;
       wireless = {
         enable = true;
@@ -88,65 +66,14 @@ in {
         };
       };
     };
-    environment.systemPackages = with pkgs; [
-      htop
-      vim
-      emacs
-      ripgrep
-      btop
-      # (python311.withPackages (p:
-      #   with p; [
-      #     python311Packages.rpi-gpio
-      #     python311Packages.gpiozero
-      #     python311Packages.pyserial
-      #   ]))
-      usbutils
-      tmux
-      git
-      dig
-      tree
-      bintools
-      lsof
-      pre-commit
-      file
-      bat
-      ethtool
-      minicom
-      fast-cli
-      nmap
-      openssl
-      dtc
-      zstd
-      neofetch
-    ];
-    # Keep this to make sure wifi works
-    hardware.enableRedistributableFirmware = lib.mkForce false;
-    hardware.firmware = [ pkgs.raspberrypiWirelessFirmware ];
-    services = {
-      desktopManager.plasma6.enable = true;
-      displayManager.sddm.enable = true;
-      xserver = { enable = true; };
+
+    # Add your username and ssh key
+    users.users.nixos = {
+      isNormalUser = true;
+      extraGroups = [ "wheel" ];
+      # openssh.authorizedKeys.keys = [ "YOUR_SSH_PUBLIC_KEY" ];
     };
-    users.mutableUsers = false;
-    # Enable OpenSSH out of the box.
-    services.sshd.enable = true;
-    # NTP time sync.
-    services.timesyncd.enable = true;
-    # ! Be sure to change the autologinUser.
-    # services.getty.autologinUser = lib.mkForce "pi";
-    amaali7 = {
-      nix = enabled;
-      shell.zsh = enabled;
-      cli-apps = { zellij = enabled; };
-      tools.git = enabled;
-      user = {
-        name = "nixos";
-        # initialPassword = "nixos";
-        extraOptions = {
-          group = "wheel";
-          isNormalUser = true;
-        };
-      };
-    };
+
+    hardware.enableRedistributableFirmware = true;
   };
 }

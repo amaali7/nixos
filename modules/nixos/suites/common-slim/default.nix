@@ -15,27 +15,31 @@ in {
     amaali7 = {
       nix = enabled;
 
-      # @TODO(jakehamilton): Enable this once Attic is configured again.
+      # TODO: Enable this once Attic is configured again.
       # cache.public = enabled;
 
-      #     cli-apps = {
-      #      flake = enabled;
-      #    };
+      cli-apps = {
+        flake = enabled;
+        # thaw = enabled;
+      };
 
       tools = {
         git = enabled;
-        #     fup-repl = enabled;
-        #     comma = enabled;
-        #     bottom = enabled;
-        #     direnv = enabled;
+        fup-repl = enabled;
+        comma = enabled;
+        bottom = enabled;
+        direnv = enabled;
       };
 
       hardware = {
-        #        storage = enabled;
-        # networking = enabled;
+        storage = enabled;
+        networking = enabled;
       };
 
-      services = { openssh = enabled; };
+      services = {
+        openssh = enabled;
+        # tailscale = enabled;
+      };
 
       security = { doas = enabled; };
 

@@ -12,9 +12,10 @@ in {
     amaali7 = {
       suites = { common-slim = enabled; };
 
-      cli-apps.neovim = enabled;
-      tools.git = enabled;
-
+      cli-apps = {
+        neovim = enabled;
+        zellij = enabled;
+      };
     };
   };
 }
