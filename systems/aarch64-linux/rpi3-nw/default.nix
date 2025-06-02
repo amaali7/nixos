@@ -15,8 +15,8 @@ with lib.amaali7; {
 
     };
     hardware = {
-      storage = disabled;
-      networking = disabled;
+      storage = mkForce disabled;
+      networking = mkForce disabled;
     };
   };
   imports = [
