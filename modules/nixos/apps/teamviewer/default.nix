@@ -8,6 +8,7 @@ in {
   };
 
   config = mkIf cfg.enable {
+    services.teamviewer.enable = true;
     environment.systemPackages = with pkgs; with pkgs.amaali7; [ teamviewer ];
   };
 }

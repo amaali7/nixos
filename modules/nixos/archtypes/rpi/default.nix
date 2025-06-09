@@ -31,6 +31,7 @@ in {
     boot.supportedFilesystems.zfs = lib.mkForce false;
     boot.initrd.kernelModules = [ "vc4" "bcm2835_dma" "i2c_bcm2835" ];
     boot.kernelParams = [ "cma=320M" ];
+    boot.tmp.useTmpfs = true;
     services.avahi = {
       enable = true;
       nssmdns = true;
