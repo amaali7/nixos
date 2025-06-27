@@ -16,6 +16,7 @@ in {
     amaali7 = {
       desktop = {
         i3wm = enabled;
+        awesomewm = enabled;
         hyprland = enabled;
       };
 
