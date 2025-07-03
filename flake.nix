@@ -62,6 +62,15 @@
       url = "github:hyprwm/hyprland-plugins";
       inputs.hyprland.follows = "hyprland";
     };
+    niri.url = "github:sodiboo/niri-flake";
+    stylix = {
+      url = "github:danth/stylix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    quickshell = {
+      url = "git+https://git.outfoxxed.me/outfoxxed/quickshell";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     # Generate System Images
     nixos-generators.url = "github:nix-community/nixos-generators";
@@ -163,6 +172,11 @@
       lib = inputs.snowfall-lib.mkLib {
         inherit inputs;
         src = ./.;
+        homes.modules = with inputs;
+          [
+            # my-input.homeModules.my-module
+            niri.homeModules.niri
+          ];
         snowfall = {
           namespace = "amaali7";
           meta = {
@@ -197,6 +211,7 @@
       overlays = with inputs; [
         neovim.overlays.default
         flake.overlays.default
+        niri.overlays.niri
         # snowfall-docs.overlays
         nixgl.overlay
         # lix.overlays.default
@@ -205,7 +220,8 @@
       ];
 
       systems.modules.nixos = with inputs; [
-
+        # niri.nixosModules.niri
+        stylix.nixosModules.stylix
         home-manager.nixosModules.home-manager
         nur.modules.nixos.default
         # nix-ld.nixosModules.nix-ld
@@ -216,6 +232,7 @@
       ];
       systems.hosts.laptop.modules = with inputs;
         [
+          # niri.homeModules.niri
           nixos-hardware.nixosModules.dell-latitude-7390
 
         ];
