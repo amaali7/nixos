@@ -19,7 +19,8 @@ in {
       enable = true;
       xwayland = enabled;
     };
-    environment.systemPackages = with pkgs; [ hyprlock ] ++ (with pkgs; [ ]);
+    environment.systemPackages = with pkgs;
+      [ hyprlock ] ++ (with pkgs; [ waybar ulauncher ]);
 
   };
 }

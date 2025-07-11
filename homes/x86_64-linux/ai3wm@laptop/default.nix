@@ -9,8 +9,6 @@ with lib.${namespace}; {
     apps = {
       hyprland = enabled;
       emacs = enabled;
-      quickshell = enabled;
-      niri = enabled;
     };
     cli-apps = {
       home-manager = enabled;
