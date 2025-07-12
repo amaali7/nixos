@@ -63,10 +63,14 @@ in {
       enable = true;
       user = "ai3wm";
     };
-    services.xserver.displayManager = {
-      gdm = enabled;
-
-    };
+    # system.activationScripts.gdmTheme =
+    #   let nordShellTheme = "${pkgs.nordic}/share/themes/Nordic/gnome-shell";
+    #   in ''
+    #     rm -rf /run/current-system/etc/xdg/gdm3/shell-theme.gresource
+    #     cp -f ${nordShellTheme}/gnome-shell.css /etc/xdg/gdm3/gnome-shell.css
+    #     cp -f ${nordShellTheme}/gnome-shell-theme.gresource /etc/xdg/gdm3/
+    #   '';
+    services.xserver.displayManager = { gdm = enabled; };
     services.gvfs.enable = true;
     services.acpid.enable = true;
     services.printing.enable = true;

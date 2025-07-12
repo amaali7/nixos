@@ -62,15 +62,15 @@
       url = "github:hyprwm/hyprland-plugins";
       inputs.hyprland.follows = "hyprland";
     };
-    niri.url = "github:sodiboo/niri-flake";
-    stylix = {
-      url = "github:danth/stylix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    quickshell = {
-      url = "git+https://git.outfoxxed.me/outfoxxed/quickshell";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    # niri.url = "github:sodiboo/niri-flake";
+    # stylix = {
+    #   url = "github:danth/stylix";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
+    # quickshell = {
+    #   url = "git+https://git.outfoxxed.me/outfoxxed/quickshell";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
 
     # Generate System Images
     nixos-generators.url = "github:nix-community/nixos-generators";
@@ -81,6 +81,11 @@
     # snowfall-lib.url = "github:snowfallorg/lib"; # ?ref=v2.1.1";
     snowfall-lib.inputs.nixpkgs.follows = "nixpkgs";
 
+    # SuperFile
+    superfile = {
+      url = "github:/yorukot/superfile";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     # Zen Browser
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
     zen-browser.inputs.nixpkgs.follows = "nixpkgs";
@@ -211,7 +216,6 @@
       overlays = with inputs; [
         neovim.overlays.default
         flake.overlays.default
-        niri.overlays.niri
         # snowfall-docs.overlays
         nixgl.overlay
         # lix.overlays.default
@@ -221,7 +225,6 @@
 
       systems.modules.nixos = with inputs; [
         # niri.nixosModules.niri
-        stylix.nixosModules.stylix
         home-manager.nixosModules.home-manager
         nur.modules.nixos.default
         # nix-ld.nixosModules.nix-ld

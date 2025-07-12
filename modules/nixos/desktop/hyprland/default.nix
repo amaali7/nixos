@@ -20,7 +20,13 @@ in {
       xwayland = enabled;
     };
     environment.systemPackages = with pkgs;
-      [ hyprlock ] ++ (with pkgs; [ waybar ulauncher ]);
+      [ hyprlock ] ++ (with pkgs; [
+        xdg-desktop-portal
+        xdg-desktop-portal-hyprland
+        xdg-desktop-portal-gtk
+        waybar
+        ulauncher
+      ]);
 
   };
 }

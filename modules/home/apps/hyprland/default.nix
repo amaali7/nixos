@@ -15,8 +15,9 @@ in {
       apps = {
         hyprland.themes = {
           # yorha = enabled;
-          aylur-ahmed = enabled;
+          # aylur-ahmed = enabled;
           # hyde = enabled;
+          hypr-nord = enabled;
         };
       };
     };

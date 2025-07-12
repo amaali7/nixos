@@ -19,6 +19,11 @@ in {
     #   enableCryptodisk = true;
     #   useOSProber = true;
     # };
+    boot.plymouth = {
+      enable = true;
+      # themePackages = [ pkgs.catppuccin-plymouth ];
+      # theme = "catppuccin-frappe";
+    };
     boot.loader.systemd-boot = {
       enable = true;
 
@@ -38,8 +43,7 @@ in {
       edk2-uefi-shell.enable = true;
       edk2-uefi-shell.sortKey = "z_edk2";
     };
-    boot.plymouth = { enable = true; };
-    # for build raspberry pi image 
+    # for build raspberry pi image
     boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
   };
 }

@@ -8,8 +8,7 @@ in {
   };
 
   config = mkIf cfg.enable {
-    environment.systemPackages = [
-      inputs.zen-browser.packages."${pkgs.system}".default
-    ];
+    environment.systemPackages =
+      [ inputs.zen-browser.packages."${pkgs.system}".default ];
   };
 }

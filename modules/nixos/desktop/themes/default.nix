@@ -9,7 +9,7 @@ in {
 
   config = mkIf cfg.enable {
     environment.sessionVariables = mkForce { QT_QPA_PLATFORMTHEME = "qtct"; };
-
+    programs.dconf.enable = true;
     environment.systemPackages = with pkgs;
       with pkgs.amaali7; [
         # fonts
