@@ -99,6 +99,7 @@ in {
         harlequin
         kitty
         pipes
+        brightnessctl
         # posting
         starship
         superfile
