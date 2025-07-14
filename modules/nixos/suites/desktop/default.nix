@@ -15,13 +15,13 @@ in {
     programs.dconf.enable = true;
     amaali7 = {
       desktop = {
-        i3wm = enabled;
-        awesomewm = enabled;
+#        i3wm = enabled;
+#        awesomewm = enabled;
         hyprland = enabled;
       };
 
       apps = {
-        firefox = enabled;
+ #       firefox = enabled;
         zen = enabled;
         vlc = enabled;
         logseq = enabled;
