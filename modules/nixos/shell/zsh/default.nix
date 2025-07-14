@@ -13,6 +13,7 @@ in {
       home = {
         extraOptions = {
           home = {
+            packages = with pkgs; [ zoxide ];
             sessionVariables = { SHELL = "${pkgs.zsh}/bin/zsh"; };
             sessionPath = [
               "$HOME/.local/bin"
@@ -26,7 +27,7 @@ in {
     };
     # environment.interactiveShellInit = "$HOME/export-esp.sh";
     users.defaultUserShell = pkgs.zsh;
-    environment.shells = with pkgs; [ zsh zoxide ];
+    environment.shells = with pkgs; [ zsh ];
     programs.zsh = {
       enable = true;
       shellAliases = {
