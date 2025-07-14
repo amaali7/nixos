@@ -5,8 +5,7 @@ let
   inherit (lib.amaali7) enabled;
 
   cfg = config.amaali7.shell.zsh;
-in
-{
+in {
   options.amaali7.shell.zsh = { enable = mkEnableOption "enable zsh"; };
 
   config = mkIf cfg.enable {
@@ -27,7 +26,7 @@ in
     };
     # environment.interactiveShellInit = "$HOME/export-esp.sh";
     users.defaultUserShell = pkgs.zsh;
-    environment.shells = with pkgs; [ zsh ];
+    environment.shells = with pkgs; [ zsh zoxide ];
     programs.zsh = {
       enable = true;
       shellAliases = {
