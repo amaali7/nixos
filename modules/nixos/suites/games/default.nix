@@ -5,10 +5,10 @@ with lib.amaali7;
 let
   cfg = config.amaali7.suites.games;
   apps = {
-    openra = enabled;
+#    openra = enabled;
     # aisleriot = enabled;
-    xonotic = enabled;
-    retroarch = enabled;
+ #   xonotic = enabled;
+  #  retroarch = enabled;
   };
 in {
   options.amaali7.suites.games = with types; {

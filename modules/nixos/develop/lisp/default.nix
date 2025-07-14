@@ -8,5 +8,5 @@ in {
   };
 
   config =
-    mkIf cfg.enable { environment.systemPackages = with pkgs; [ gcl sbcl ]; };
+    mkIf cfg.enable { environment.systemPackages = with pkgs; [  sbcl ]; };
 }

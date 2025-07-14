@@ -17,7 +17,6 @@ in {
         gnutls
         libcrypt
         taglib
-        libstdcxx5
         libclang
         libtool
       ];

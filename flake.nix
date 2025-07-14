@@ -16,7 +16,7 @@
   };
   inputs = {
     # NixPkgs (nixos-23.11)
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
 
     # NixPkgs Unstable (nixos-unstable)
     unstable.url = "github:nixos/nixpkgs/nixos-unstable";
@@ -32,7 +32,7 @@
     # };
     nix-alien.url = "github:thiagokokada/nix-alien";
     # Home Manager (release-22.05)
-    home-manager.url = "github:nix-community/home-manager/release-24.11";
+    home-manager.url = "github:nix-community/home-manager/release-25.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     matugen = {
       url = "github:/InioX/Matugen";

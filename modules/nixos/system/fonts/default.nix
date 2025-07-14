@@ -42,9 +42,9 @@ in {
           roboto
           fira-code
           # nerdfonts
-          (nerdfonts.override {
-            fonts = [ "FiraCode" "JetBrainsMono" "IosevkaTerm" "Iosevka" ];
-          })
+#          (nerdfonts.override {
+#            fonts = [ "FiraCode" "JetBrainsMono" "IosevkaTerm" "Iosevka" ];
+#          })
         ] ++ cfg.fonts;
 
       # use fonts specified by user rather than default ones

@@ -12,7 +12,6 @@ in {
       nasm
       imhex
       radare2
-      pwndbg
       # ghidra
     ];
   };

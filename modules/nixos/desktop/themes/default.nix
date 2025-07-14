@@ -13,20 +13,20 @@ in {
     environment.systemPackages = with pkgs;
       with pkgs.amaali7; [
         # fonts
-        (nerdfonts.override {
-          fonts = [
-            "FiraCode"
-            "JetBrainsMono"
-            "Ubuntu"
-            "UbuntuMono"
-            "CascadiaCode"
-            "FantasqueSansMono"
-            "FiraCode"
-            "VictorMono"
-            "Mononoki"
-          ];
-        })
-        acyl
+#        (nerdfonts.override {
+#          fonts = [
+#            "FiraCode"
+#            "JetBrainsMono"
+#            "Ubuntu"
+#            "UbuntuMono"
+#            "CascadiaCode"
+#            "FantasqueSansMono"
+#            "FiraCode"
+#            "VictorMono"
+#            "Mononoki"
+#          ];
+#        })
+#       acyl
         font-awesome
 
         # themes
