@@ -19,8 +19,6 @@ in {
       # @TODO(jakehamilton): Enable this once Attic is configured again.
       # cache.public = enabled;
 
-      cli-apps = { flake = enabled; };
-
       tools = {
         git = enabled;
         misc = enabled;

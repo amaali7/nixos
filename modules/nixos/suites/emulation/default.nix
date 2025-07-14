@@ -13,8 +13,6 @@ in {
     amaali7 = {
       apps = {
         qemu = enabled;
-        pcsx2 = enabled;
-        fceux = enabled;
         waydroid = enabled;
       };
     };

@@ -18,7 +18,6 @@ in {
         clang
         libclang
         ccls
-        libcrypt
       ];
   };
 }

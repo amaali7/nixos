@@ -11,10 +11,7 @@ in {
   config = mkIf cfg.enable {
     amaali7 = {
       suites = { common-slim = enabled; };
-      cli-apps = {
-        neovim = enabled;
-        zellij = enabled;
-      };
+      cli-apps = { zellij = enabled; };
     };
   };
 }

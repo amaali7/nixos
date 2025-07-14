@@ -18,11 +18,6 @@ in {
       # TODO: Enable this once Attic is configured again.
       # cache.public = enabled;
 
-      cli-apps = {
-        flake = enabled;
-        # thaw = enabled;
-      };
-
       tools = {
         git = enabled;
         fup-repl = enabled;

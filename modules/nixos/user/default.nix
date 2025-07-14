@@ -2,29 +2,7 @@
 
 with lib;
 with lib.amaali7;
-let
-  cfg = config.amaali7.user;
-  defaultIconFileName = "profile.png";
-  defaultIcon = pkgs.stdenvNoCC.mkDerivation {
-    name = "default-icon";
-    src = ./. + "/${defaultIconFileName}";
-
-    dontUnpack = true;
-
-    installPhase = ''
-      cp $src $out
-    '';
-
-    passthru = { fileName = defaultIconFileName; };
-  };
-  propagatedIcon = pkgs.runCommandNoCC "propagated-icon" {
-    passthru = { fileName = cfg.icon.fileName; };
-  } ''
-    local target="$out/share/amaali7-icons/user/${cfg.name}"
-    mkdir -p "$target"
-
-    cp ${cfg.icon} "$target/${cfg.icon.fileName}"
-  '';
+let cfg = config.amaali7.user;
 in {
   options.amaali7.user = with types; {
     name = mkOpt str "ai3wm" "The name to use for the user account.";

@@ -29,6 +29,10 @@ in {
     location.provider = "geoclue2";
     # from amaali7
     services = {
+      pulseaudio = {
+        enable = false;
+        # support32Bit = true;
+      };
       # provide location
       geoclue2.enable = true;
 

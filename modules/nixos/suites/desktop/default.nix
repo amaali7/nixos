@@ -11,17 +11,11 @@ in {
 
   config = mkIf cfg.enable {
 
-    environment.systemPackages = [ pkgs.amaali7.deepseek-cli ];
     programs.dconf.enable = true;
     amaali7 = {
-      desktop = {
-#        i3wm = enabled;
-#        awesomewm = enabled;
-        hyprland = enabled;
-      };
+      desktop = { hyprland = enabled; };
 
       apps = {
- #       firefox = enabled;
         zen = enabled;
         vlc = enabled;
         logseq = enabled;

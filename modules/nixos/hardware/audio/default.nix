@@ -54,8 +54,6 @@ in {
     # '';
     # };
 
-    hardware.pulseaudio.enable = false;
-
     environment.systemPackages = with pkgs;
       [ pulsemixer pulseaudio pavucontrol ] ++ cfg.extra-packages;
 

@@ -8,12 +8,5 @@ in {
     enable = mkBoolOpt false "Whether or not to enable video configuration.";
   };
 
-  config = mkIf cfg.enable {
-    amaali7 = {
-      apps = {
-        pitivi = enabled;
-        obs-studio = enabled;
-      };
-    };
-  };
+  config = mkIf cfg.enable { amaali7 = { apps = { obs-studio = enabled; }; }; };
 }

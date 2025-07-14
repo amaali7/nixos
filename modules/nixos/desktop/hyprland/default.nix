@@ -33,6 +33,8 @@ in {
         xdg-desktop-portal-hyprland
         xdg-desktop-portal-gtk
         waybar
+            lm_sensors
+            smartmontools
         ulauncher
       ]);
 

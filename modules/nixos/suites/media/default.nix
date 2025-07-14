@@ -12,10 +12,8 @@ in {
     amaali7 = {
       apps = {
         mousai = enabled;
-        ani-cli = enabled;
         freetube = enabled;
         webtorrent = enabled;
-        #tartube = enabled;
       };
     };
   };

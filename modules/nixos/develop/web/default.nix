@@ -10,7 +10,6 @@ in {
   config = mkIf cfg.enable {
     amaali7 = {
       apps = {
-        altair = enabled;
         # drawio = enabled;
         docker = enabled;
       };

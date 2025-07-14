@@ -12,10 +12,9 @@ in {
       with pkgs.amaali7; [
         openssl
         pkg-config
-	ncurses6
+        ncurses6
         ncurses
         gnutls
-        libcrypt
         taglib
         libclang
         libtool

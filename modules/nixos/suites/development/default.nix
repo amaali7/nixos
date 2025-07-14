@@ -4,22 +4,10 @@ with lib.amaali7;
 let
   cfg = config.amaali7.suites.development;
   apps = {
-    # docker = enabled;
-    #drawio = enabled;
-    # neovide = enabled;
-    # lapce = enabled;
     emacs = enabled;
-    tmux = enabled;
     android = enabled;
-    # vscode = enabled;
-    # surrealdb = enabled;
-    postgres = enabled;
   };
-  cli-apps = {
-    # helix = enabled;
-    zellij = enabled;
-    neovim = enabled;
-  };
+  cli-apps = { zellij = enabled; };
 in {
   options.amaali7.suites.development = with types; {
     enable = mkBoolOpt false
@@ -53,18 +41,11 @@ in {
       };
 
       tools = {
-        # attic = enabled;
-        # at = enabled;
         direnv = enabled;
-        # go = enabled;
         http = enabled;
-        # k8s = enabled;
-        # node = enabled;
-        # titan = enabled;
         qmk = enabled;
       };
 
-      virtualisation = { podman = enabled; };
     };
   };
 }
