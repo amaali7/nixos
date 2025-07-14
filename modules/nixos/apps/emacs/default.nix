@@ -16,6 +16,6 @@ in {
     #     package = pkgs.emacs29;
     #   };
     # };
-    environment.systemPackages = with pkgs; [ emacs30 ];
+    environment.systemPackages = with pkgs; [ zoxide emacs30 ];
   };
 }
