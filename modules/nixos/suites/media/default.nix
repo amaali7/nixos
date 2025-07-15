@@ -9,6 +9,7 @@ in {
   };
 
   config = mkIf cfg.enable {
+    environment.systemPackages = with pkgs; [ yt-dlp ];
     amaali7 = {
       apps = {
         mousai = enabled;
