@@ -33,8 +33,17 @@ in {
       # system to select).
       # uid = 1000;
 
-      extraGroups = [ "wheel" "dialout" "network" "docker" "adbusers" "kvm" ]
-        ++ cfg.extraGroups;
+      extraGroups = [
+        "storage"
+        "plugdev"
+        "disk"
+        "wheel"
+        "dialout"
+        "network"
+        "docker"
+        "adbusers"
+        "kvm"
+      ] ++ cfg.extraGroups;
     } // cfg.extraOptions;
   };
 }

@@ -18,9 +18,18 @@ in {
         thunar-media-tags-plugin
         tumbler
         ristretto
-
+        gvfs
       ] ++ [ pkgs.lxde.lxsession ];
     services.gvfs.enable = true;
-    services.tumbler.enable = true;
+    services.tumbler = enabled;
+    services.udisks2 = enabled;
+    programs.thunar = {
+      enable = true;
+      plugins = with pkgs.xfce; [
+        thunar-archive-plugin
+        thunar-volman
+        thunar-media-tags-plugin
+      ];
+    };
   };
 }
