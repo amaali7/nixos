@@ -9,7 +9,7 @@ in {
 
   config = mkIf cfg.enable {
     environment.systemPackages = with pkgs.xfce;
-      with pkgs.amaali7;
+
       [
         xfce4-power-manager
         thunar
@@ -18,8 +18,7 @@ in {
         thunar-media-tags-plugin
         tumbler
         ristretto
-        gvfs
-      ] ++ [ pkgs.lxde.lxsession ];
+      ] ++ (with pkgs; [ gvfs ]);
     services.gvfs.enable = true;
     services.tumbler = enabled;
     services.udisks2 = enabled;
