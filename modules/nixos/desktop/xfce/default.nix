@@ -20,5 +20,7 @@ in {
         ristretto
 
       ] ++ [ pkgs.lxde.lxsession ];
+    services.gvfs.enable = true;
+    services.tumbler.enable = true;
   };
 }

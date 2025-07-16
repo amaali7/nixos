@@ -16,6 +16,7 @@ in {
         nixgl.nixGLIntel
         libGL
         libudev-zero
+        android-file-transfer
       ];
   };
 }

@@ -8,15 +8,14 @@ in {
     enable = mkBoolOpt false "Whether or not to enable hyprland .";
   };
 
-
   config = mkIf cfg.enable {
-	amaali7 = {
-	desktop = {
-	themes = enabled;
-	xfce = enabled;
-	wayland = enabled;
-};
-};
+    amaali7 = {
+      desktop = {
+        themes = enabled;
+        xfce = enabled;
+        wayland = enabled;
+      };
+    };
     hardware.graphics = {
       enable32Bit = true;
       enable = true;
@@ -33,8 +32,9 @@ in {
         xdg-desktop-portal-hyprland
         xdg-desktop-portal-gtk
         waybar
-            lm_sensors
-            smartmontools
+        lm_sensors
+        smartmontools
+        hyprpolkitagent
         ulauncher
       ]);
 

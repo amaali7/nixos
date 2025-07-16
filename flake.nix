@@ -1,5 +1,4 @@
 {
-
   description = "Amaali7";
   nixConfig = {
     extra-substituters = [
