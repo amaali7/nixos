@@ -24,11 +24,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     # Lix
-    # lix = {
-    #   url =
-    #     "https://git.lix.systems/lix-project/nixos-module/archive/2.91.0.tar.gz";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
+    lix = {
+      url =
+        "https://git.lix.systems/lix-project/nixos-module/archive/2.93.2-1.tar.gz";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     nix-alien.url = "github:thiagokokada/nix-alien";
     # Home Manager (release-22.05)
     home-manager.url = "github:nix-community/home-manager/release-25.05";
@@ -105,8 +105,8 @@
     deploy-rs.inputs.nixpkgs.follows = "unstable";
 
     # Run unpatched dynamically compiled binaries
-    nix-ld.url = "github:Mic92/nix-ld";
-    nix-ld.inputs.nixpkgs.follows = "unstable";
+    nix-ld.url = "github:nix-community/nix-ld";
+    nix-ld.inputs.nixpkgs.follows = "nixpkgs";
 
     # Neovim
     neovim.url = "github:amaali7/nixvim";
@@ -226,8 +226,9 @@
         # niri.nixosModules.niri
         home-manager.nixosModules.home-manager
         nur.modules.nixos.default
+        nix-ld.nixosModules.nix-ld
         # nix-ld.nixosModules.nix-ld
-        # lix.nixosModules.default
+        lix.nixosModules.default
         # @TODO(jakehamilton): Replace amaali7.services.attic now that vault-agent
         # exists and can force override environment files.
         # attic.nixosModules.atticd
