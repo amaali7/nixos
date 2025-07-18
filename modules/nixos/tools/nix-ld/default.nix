@@ -10,8 +10,8 @@ in {
 
   config = mkIf cfg.enable {
     programs.nix-ld.enable = true;
-    environment.systemPackages = [
-      inputs.nix-alien.packages.${pkgs.system}.nix-alien
-    ];
+    programs.nix-ld.libraries = with pkgs; [ sqlite ];
+    environment.systemPackages =
+      [ inputs.nix-alien.packages.${pkgs.system}.nix-alien ];
   };
 }
