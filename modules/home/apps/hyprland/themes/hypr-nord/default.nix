@@ -47,7 +47,7 @@ in {
       enable = true;
       themeFile = "Nord";
       extraConfig = ''
-        font_size 14.0
+        font_size 16.0
         map ctrl+v paste_from_clipboard
         copy_on_select yes
 
@@ -56,7 +56,7 @@ in {
         tab_bar_style               powerline
         tab_powerline_style         slanted
         tab_title_template          {title}{' :{}:'.format(num_windows) if num_windows > 1 else '''}
-        window_padding_width	      10
+        window_padding_width	      3
 
       '';
       settings = {
@@ -87,7 +87,7 @@ in {
       };
       font = {
         name = "Fira Code";
-        size = 12;
+        size = 16;
       };
     };
     home = {
