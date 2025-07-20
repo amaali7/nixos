@@ -105,8 +105,8 @@
     deploy-rs.inputs.nixpkgs.follows = "unstable";
 
     # Run unpatched dynamically compiled binaries
-    nix-ld.url = "github:nix-community/nix-ld";
-    nix-ld.inputs.nixpkgs.follows = "nixpkgs";
+    # nix-ld.url = "github:Mic92/nix-ld";
+    # nix-ld.inputs.nixpkgs.follows = "unstable";
 
     # Neovim
     neovim.url = "github:amaali7/nixvim";
@@ -226,7 +226,7 @@
         # niri.nixosModules.niri
         home-manager.nixosModules.home-manager
         nur.modules.nixos.default
-        nix-ld.nixosModules.nix-ld
+        # nix-ld.nixosModules.nix-ld
         # nix-ld.nixosModules.nix-ld
         lix.nixosModules.default
         # @TODO(jakehamilton): Replace amaali7.services.attic now that vault-agent
