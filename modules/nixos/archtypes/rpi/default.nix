@@ -9,6 +9,7 @@ in {
   };
 
   config = mkIf cfg.enable {
+
     nix = {
       settings = {
         substituters = [ "https://nix-community.cachix.org" ];
@@ -35,12 +36,13 @@ in {
     services.avahi = {
       enable = true;
       nssmdns4 = true;
+      openFirewall = true;
       publish = {
         enable = true;
         addresses = true;
         workstation = true;
+        userServices = true;
       };
-      extraServiceFiles.ssh = "${pkgs.avahi}/etc/avahi/services/ssh.service";
     };
     networking.firewall.allowedUDPPorts = [ 5353 ];
     services.zram-generator = {
@@ -62,7 +64,8 @@ in {
         # ! Change the following to connect to your own network
         networks = {
           "WE_A65D68" = { # SSID
-            psk = "n9v16300"; # password
+            pskRaw =
+              "ca7d9219fb8157cf6a10ce4b2e6c4fd412ce731dd94a647c27d85ba705c58446"; # password
           };
         };
       };
@@ -71,10 +74,42 @@ in {
     # Add your username and ssh key
     users.users.nixos = {
       isNormalUser = true;
-      extraGroups = [ "wheel" ];
-      # openssh.authorizedKeys.keys = [ "YOUR_SSH_PUBLIC_KEY" ];
+      openssh.authorizedKeys.keys = [
+        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIqVEqyHNIvReezSYd11qD/H7X2XhPKIt+yPeTFqp96N amaali1991@gmail.com"
+      ];
+      extraGroups = [
+        "wheel"
+        "storage"
+        "plugdev"
+        "disk"
+        "wheel"
+        "dialout"
+        "network"
+        "docker"
+        "adbusers"
+        "kvm"
+      ];
     };
 
     hardware.enableRedistributableFirmware = true;
+    amaali7 = {
+      develop.rust-rpi = enabled;
+      cli-apps = {
+        superfile = enabled;
+        zellij = enabled;
+      };
+      shell.zsh = enabled;
+      tools = {
+        git = enabled;
+        misc = enabled;
+        fup-repl = enabled;
+        comma = enabled;
+        nix-ld = enabled;
+        bottom = enabled;
+        cli = enabled;
+        # archive = enabled;
+      };
+
+    };
   };
 }

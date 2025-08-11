@@ -32,6 +32,10 @@ with lib.amaali7; {
   #   extraGroups = [ "wheel" ];
   #   # openssh.authorizedKeys.keys = [ "YOUR_SSH_PUBLIC_KEY" ];
   # };
+  nix = {
+    enable = true;
+    package = mkForce pkgs.nix;
+  };
 
   system.stateVersion = "24.11";
 }

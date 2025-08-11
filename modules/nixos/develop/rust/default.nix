@@ -18,7 +18,7 @@ in {
       sqlite.dev
       cargo-generate
     ];
-    services.udev.packages = with pkgs; [ amaali7.probe-rs-udev-rules ];
+    # services.udev.packages = with pkgs.amaali7; [ probe-rs-udev-rules ];
 
   };
 }
