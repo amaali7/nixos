@@ -11,6 +11,7 @@ in {
   config = mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
       cargo-generate
+      rustup
       # Development
       gcc
       pkg-config

@@ -43,6 +43,7 @@ in {
         "docker"
         "adbusers"
         "kvm"
+        "podman"
       ] ++ cfg.extraGroups;
     } // cfg.extraOptions;
   };
