@@ -21,6 +21,17 @@ in {
         ports = [ "127.0.0.1:1234:1234" ];
       };
     };
+    xdg.configFile."containers/registries.conf".text = ''
+      [registries.search]
+      registries = ['docker.io']
+    '';
+    environment.systemPackages = with pkgs; [
+      podman
+      podman-tui
+      podman-compose
+      podman-desktop
+    ];
+
     virtualisation.containers.enable = true;
     virtualisation = {
       podman = {
