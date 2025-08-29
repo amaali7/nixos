@@ -5,8 +5,7 @@ with lib.amaali7;
 let
   cfg = config.amaali7.virtualisation.kvm;
   user = config.amaali7.user;
-in
-{
+in {
   options.amaali7.virtualisation.kvm = with types; {
     enable = mkBoolOpt false "Whether or not to enable KVM virtualisation.";
     vfioIds = mkOpt (listOf str) [ ]
@@ -73,7 +72,10 @@ in
     amaali7 = {
       user = { extraGroups = [ "qemu-libvirtd" "libvirtd" "disk" ]; };
 
-      apps = { looking-glass-client = enabled; };
+      apps = {
+        looking-glass-client = enabled;
+        podman = enabled;
+      };
 
       home = {
         extraOptions = {
