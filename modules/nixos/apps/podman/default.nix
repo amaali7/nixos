@@ -21,10 +21,10 @@ in {
         ports = [ "127.0.0.1:1234:1234" ];
       };
     };
-    environment.etc."containers/registries.conf".text = ''
-      [registries.search]
-      registries = ['docker.io']
-    '';
+    # environment.etc."containers/registries.conf".text = ''
+    #   [registries.search]
+    #   registries = ['docker.io']
+    # '';
     environment.systemPackages = with pkgs; [
       podman
       podman-tui

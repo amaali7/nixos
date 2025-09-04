@@ -11,7 +11,7 @@ in {
     amaali7 = {
       apps = {
         # drawio = enabled;
-        docker = enabled;
+        # docker = enabled;
       };
     };
     environment.systemPackages = with pkgs; [

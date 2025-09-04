@@ -15,6 +15,7 @@ in {
         qemu = enabled;
         waydroid = enabled;
       };
+      virtualisation.kvm = enabled;
     };
   };
 }
