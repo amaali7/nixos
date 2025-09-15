@@ -22,8 +22,8 @@ in {
         XCURSOR_THEME = "Qogir";
         NIXPKGS_ALLOW_UNFREE = "1";
       };
-      sessionPath =
-        [ "$HOME/.local/bin" "$HOME/.cargo/bin/" "$HOME/.npm-packages/bin/" ];
+      # sessionPath =
+      # [ "$HOME/.local/bin" "$HOME/.cargo/bin/" "$HOME/.npm-packages/bin/" ];
     };
   };
 }

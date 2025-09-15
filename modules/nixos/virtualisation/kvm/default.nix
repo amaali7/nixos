@@ -48,33 +48,33 @@ in {
       swtpm
     ];
 
-    virtualisation = {
-      libvirtd = {
-        enable = true;
-        extraConfig = ''
-          user="${user.name}"
-        '';
+    # virtualisation = {
+    #   libvirtd = {
+    #     enable = true;
+    #     extraConfig = ''
+    #       user="${user.name}"
+    #     '';
 
-        onBoot = "ignore";
-        onShutdown = "shutdown";
+    #     onBoot = "ignore";
+    #     onShutdown = "shutdown";
 
-        qemu = {
-          package = pkgs.qemu_kvm;
-          ovmf = enabled;
-          verbatimConfig = ''
-            namespaces = []
-            user = "+${builtins.toString config.users.users.${user.name}.uid}"
-          '';
-        };
-      };
-    };
+    #     qemu = {
+    #       package = pkgs.qemu_kvm;
+    #       ovmf = enabled;
+    #       verbatimConfig = ''
+    #         namespaces = []
+    #         user = "+${builtins.toString config.users.users.${user.name}.uid}"
+    #       '';
+    #     };
+    #   };
+    # };
 
     amaali7 = {
       user = { extraGroups = [ "qemu-libvirtd" "libvirtd" "disk" ]; };
 
       apps = {
         looking-glass-client = enabled;
-        podman = enabled;
+        # podman = enabled;
       };
 
       home = {

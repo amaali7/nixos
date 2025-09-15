@@ -55,11 +55,11 @@ in {
               XCURSOR_THEME = "Qogir";
               NIXPKGS_ALLOW_UNFREE = "1";
             };
-            sessionPath = [
-              "$HOME/.local/bin"
-              "$HOME/.cargo/bin/"
-              "$HOME/.npm-packages/bin/"
-            ];
+            # sessionPath = [
+            #   "/home/${cfg.amaali7.user.name}/.local/bin"
+            #   "/home/${cfg.amaali7.user.name}/.cargo/bin/"
+            #   "/home/${cfg.amaali7.user.name}/.npm-packages/bin/"
+            # ];
           };
           xdg.desktopEntries = {
             "org.wezfurlong.wezterm" = {

@@ -13,9 +13,12 @@ in {
     amaali7 = {
       apps = {
         qemu = enabled;
-        waydroid = enabled;
+        # waydroid = enabled;
       };
-      virtualisation.kvm = enabled;
+      virtualisation = {
+        kvm = enabled;
+        winapps = enabled;
+      };
     };
   };
 }

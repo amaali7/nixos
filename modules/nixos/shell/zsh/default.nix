@@ -16,9 +16,9 @@ in {
             packages = with pkgs; [ zoxide ];
             sessionVariables = { SHELL = "${pkgs.zsh}/bin/zsh"; };
             sessionPath = [
-              "$HOME/.local/bin"
-              "$HOME/.cargo/bin/"
-              "$HOME/.npm-packages/bin/"
+              "/home/${config.amaali7.user.name}/.local/bin"
+              "/home/${config.amaali7.user.name}/.cargo/bin/"
+              "/home/${config.amaali7.user.name}/.npm-packages/bin/"
             ];
           };
         };

@@ -16,7 +16,10 @@
   inputs = {
     # NixPkgs (nixos-23.11)
     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
-
+    winapps = {
+      url = "github:winapps-org/winapps";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     # NixPkgs Unstable (nixos-unstable)
     unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     kmyc = {

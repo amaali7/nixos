@@ -8,6 +8,6 @@ in {
   };
 
   config = mkIf cfg.enable {
-    environment.systemPackages = with pkgs; [ mame-tools retroarchFull ];
+    environment.systemPackages = with pkgs; [ mame-tools retroarch-full ];
   };
 }
