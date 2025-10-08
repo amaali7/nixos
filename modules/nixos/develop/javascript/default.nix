@@ -8,6 +8,10 @@ in {
   };
 
   config = mkIf cfg.enable {
-    environment.systemPackages = with pkgs; [ nodePackages.node-gyp nodejs_20 ];
+    environment.systemPackages = with pkgs; [
+      tailwindcss_4
+      nodePackages.node-gyp
+      nodejs_20
+    ];
   };
 }

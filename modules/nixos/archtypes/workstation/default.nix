@@ -11,7 +11,7 @@ in {
   config = mkIf cfg.enable {
     environment.systemPackages = with pkgs; [ colorls ];
     amaali7 = {
-      shell.zsh = enabled;
+      shell.nushell = enabled;
       suites = {
         common = enabled;
         common-slim = enabled;
@@ -48,10 +48,10 @@ in {
           home = {
             sessionVariables = {
               # QT_XCB_GL_INTEGRATION = "none"; # kde-connect
-              EDITOR = "nvim";
-              VISUAL = "neovide";
+              EDITOR = "emacs";
+              VISUAL = "emacs";
               # BROWSER = "flatpak run org.mozilla.firefox";
-              TERMINAL = "wezterm";
+              TERMINAL = "kitty";
               XCURSOR_THEME = "Qogir";
               NIXPKGS_ALLOW_UNFREE = "1";
             };
@@ -61,27 +61,27 @@ in {
             #   "/home/${cfg.amaali7.user.name}/.npm-packages/bin/"
             # ];
           };
-          xdg.desktopEntries = {
-            "org.wezfurlong.wezterm" = {
-              name = "WezTerm";
-              comment = "Wez's Terminal Emulator";
-              icon = "org.wezfurlong.wezterm";
-              exec = "nixGL ${pkgs.wezterm}/bin/wezterm start --cwd .";
-              categories = [ "System" "TerminalEmulator" "Utility" ];
-              terminal = false;
-            };
-            "neovide" = {
-              categories = [ "Utility" "TextEditor" "Development" "IDE" ];
-              comment = "Code Editing. Redefined.";
-              exec = "/usr/bin/env -u WAYLAND_DISPLAY neovide %F";
-              genericName = "Text Editor";
-              icon = "neovide";
-              mimeType = [ "text/plain" "inode/directory" ];
-              name = "NeoVide";
-              startupNotify = true;
-              type = "Application";
-            };
-          };
+          # xdg.desktopEntries = {
+          #   "org.wezfurlong.wezterm" = {
+          #     name = "WezTerm";
+          #     comment = "Wez's Terminal Emulator";
+          #     icon = "org.wezfurlong.wezterm";
+          #     exec = "nixGL ${pkgs.wezterm}/bin/wezterm start --cwd .";
+          #     categories = [ "System" "TerminalEmulator" "Utility" ];
+          #     terminal = false;
+          #   };
+          #   "neovide" = {
+          #     categories = [ "Utility" "TextEditor" "Development" "IDE" ];
+          #     comment = "Code Editing. Redefined.";
+          #     exec = "/usr/bin/env -u WAYLAND_DISPLAY neovide %F";
+          #     genericName = "Text Editor";
+          #     icon = "neovide";
+          #     mimeType = [ "text/plain" "inode/directory" ];
+          #     name = "NeoVide";
+          #     startupNotify = true;
+          #     type = "Application";
+          #   };
+          # };
           # programs.home-manager = enabled;
           programs.git = {
             enable = true;
@@ -92,16 +92,6 @@ in {
               init = { defaultBranch = "main"; };
               safe = { directory = "*"; };
             };
-          };
-          home.shellAliases = {
-            lc = "${pkgs.colorls}/bin/colorls --sd";
-            lcg = "lc --gs";
-            lcl = "lc -1";
-            lclg = "lc -1 --gs";
-            lcu = "${pkgs.colorls}/bin/colorls -U";
-            lclu = "${pkgs.colorls}/bin/colorls -U -1";
-            vim = "nvim";
-            vi = "nvim";
           };
           # User config
           # programs = {

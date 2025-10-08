@@ -12,7 +12,7 @@ with lib.${namespace}; {
     };
     cli-apps = {
       home-manager = enabled;
-      zsh = enabled;
+      nushell = enabled;
     };
   };
 }

@@ -15,7 +15,7 @@ in {
 
     programs.nix-index = {
       enable = true;
-      enableZshIntegration = true;
+      # enableZshIntegration = true;
     };
 
   };

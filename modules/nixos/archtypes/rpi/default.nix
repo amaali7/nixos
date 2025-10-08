@@ -98,7 +98,7 @@ in {
         superfile = enabled;
         zellij = enabled;
       };
-      shell.zsh = enabled;
+      shell.nushell = enabled;
       tools = {
         git = enabled;
         misc = enabled;

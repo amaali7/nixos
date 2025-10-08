@@ -11,7 +11,7 @@ in {
     programs.direnv = {
       enable = true;
       nix-direnv = enabled;
-      enableZshIntegration = true;
+      # enableZshIntegration = true;
       enableBashIntegration = true;
       loadInNixShell = true;
       silent = true;
