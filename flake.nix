@@ -22,15 +22,16 @@
     };
     # NixPkgs Unstable (nixos-unstable)
     unstable.url = "github:nixos/nixpkgs/nixos-unstable";
-    kmyc = {
-      url = "github:amaali7/kde-material-you-colors-flake";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     # Lix
     lix = {
-      url =
-        "https://git.lix.systems/lix-project/nixos-module/archive/2.93.3-1.tar.gz";
+      url = "https://git.lix.systems/lix-project/lix/archive/main.tar.gz";
+      flake = false;
+    };
+
+    lix-module = {
+      url = "https://git.lix.systems/lix-project/nixos-module/archive/main.tar.gz";
       inputs.nixpkgs.follows = "nixpkgs";
+      inputs.lix.follows = "lix";
     };
     nix-alien.url = "github:thiagokokada/nix-alien";
     # Home Manager (release-22.05)
@@ -228,6 +229,7 @@
       systems.modules.nixos = with inputs; [
         # niri.nixosModules.niri
         home-manager.nixosModules.home-manager
+        lix-module.nixosModules.default
         nur.modules.nixos.default
         # nix-ld.nixosModules.nix-ld
         # nix-ld.nixosModules.nix-ld
@@ -236,6 +238,13 @@
         # exists and can force override environment files.
         # attic.nixosModules.atticd
       ];
+      systems.hosts.b-laptop.modules = with inputs;
+        [
+          # niri.homeModules.niri
+          nixos-hardware.nixosModules.dell-latitude-7390
+
+        ];
+
       systems.hosts.laptop.modules = with inputs;
         [
           # niri.homeModules.niri
