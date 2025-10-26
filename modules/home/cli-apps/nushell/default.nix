@@ -46,6 +46,7 @@ in {
               | uniq
           )
           def dioxus_bundle_github [commit: string]  {
+              cargo clean
               let current_dir = pwd;
               rm -rf ($current_dir | path join target/dx/blogy/release/web) ;
               rm -rf ($current_dir | path join docs);
