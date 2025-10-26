@@ -45,6 +45,30 @@ in {
               | flatten
               | uniq
           )
+          def dioxus_bundle_github [commit: string]  {
+              let current_dir = pwd;
+              rm -rf ($current_dir | path join target/dx/blogy/release/web) ;
+              rm -rf ($current_dir | path join docs);
+              dx bundle --renderer web -r --out-dir docs;
+              let dest = ($current_dir | path join docs)
+              let items = (ls ($current_dir | path join "docs/public/") | get name)
+              if ($items | length) > 0 {
+                  mv ...$items $dest
+              }
+              rm -rf ($current_dir | path join "docs/public/" )
+              cp ($current_dir | path join docs/index.html) ($current_dir | path join docs/404.html);
+              let items = (
+                  ls ($current_dir | path join "docs/assets/")
+                  | where type == file and name =~ "\\.wasm$"
+                  | get name
+              )
+              if ($items | length) > 0 {
+                  gzip -9 ...$items
+              }
+              git add .;
+              git commit -m ($commit);
+              git push;
+          }
         '';
       };
       carapace.enable = true;
