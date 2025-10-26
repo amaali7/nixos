@@ -63,7 +63,7 @@ in {
                   | get name
               )
               if ($items | length) > 0 {
-                  gzip -9 ...$items
+                  gzip -9 -k ...$items
               }
               git add .;
               git commit -m ($commit);
