@@ -9,9 +9,12 @@ with lib.${namespace}; {
     apps = {
       hyprland = enabled;
       emacs = enabled;
+      caelestia = enabled;
+
     };
     cli-apps = {
       home-manager = enabled;
+      neovim = enabled;
       nushell = enabled;
     };
   };

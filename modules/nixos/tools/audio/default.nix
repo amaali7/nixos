@@ -8,6 +8,11 @@ in {
   };
 
   config = mkIf cfg.enable {
-    environment.systemPackages = with pkgs; with pkgs.amaali7; [ cava sptlrx ];
+    environment.systemPackages = with pkgs;
+      with pkgs.amaali7; [
+        cava
+        sptlrx
+        cavalier
+      ];
   };
 }

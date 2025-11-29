@@ -17,6 +17,7 @@ in {
 
       apps = {
         zen = enabled;
+        zoom-us = enabled;
         vlc = enabled;
         logseq = enabled;
         gparted = enabled;

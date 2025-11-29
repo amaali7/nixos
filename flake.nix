@@ -20,8 +20,13 @@
       url = "github:winapps-org/winapps";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    sops-nix.url = "github:Mic92/sops-nix";
     # NixPkgs Unstable (nixos-unstable)
     unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+    caelestia-shell = {
+      url = "github:caelestia-dots/shell";
+      inputs.nixpkgs.follows = "unstable";
+    };
     # Lix
     lix = {
       url = "https://git.lix.systems/lix-project/lix/archive/main.tar.gz";
@@ -29,7 +34,8 @@
     };
 
     lix-module = {
-      url = "https://git.lix.systems/lix-project/nixos-module/archive/main.tar.gz";
+      url =
+        "https://git.lix.systems/lix-project/nixos-module/archive/main.tar.gz";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.lix.follows = "lix";
     };
@@ -225,12 +231,15 @@
         nixpkgs-f2k.overlays.default
         yazi.overlays.default
       ];
+      # ---------- 2.  home-manager users get the sops module ----------
+      homes.modules = [ inputs.sops-nix.homeManagerModules.sops ];
 
       systems.modules.nixos = with inputs; [
         # niri.nixosModules.niri
         home-manager.nixosModules.home-manager
         lix-module.nixosModules.default
         nur.modules.nixos.default
+        sops-nix.nixosModules.sops
         # nix-ld.nixosModules.nix-ld
         # nix-ld.nixosModules.nix-ld
         # lix.nixosModules.default
@@ -238,6 +247,19 @@
         # exists and can force override environment files.
         # attic.nixosModules.atticd
       ];
+      # ---------- 3.  global defaults for sops ----------
+      #     (put here so you do NOT repeat yourself in every host/user file)
+      # systems.settings = {
+      #   # decrypt with the host SSH key
+      #   sops.age.sshKeyPaths = [ "/etc/ssh/ssh_host_ed25519_key" ];
+      #   sops.defaultSopsFile = ./secrets/secrets.yaml; # ← your encrypted file
+      # };
+
+      # homes.settings = {
+      #   # decrypt with the *user* SSH key
+      #   # sops.age.sshKeyPaths = [ "${config.home.homeDirectory}/.ssh/id_ed25519" ];
+      #   sops.defaultSopsFile = ./secrets/secrets.yaml; # ← same file
+      # };
       systems.hosts.b-laptop.modules = with inputs;
         [
           # niri.homeModules.niri

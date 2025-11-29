@@ -48,6 +48,7 @@ in {
         gpg = enabled;
         doas = enabled;
         keyring = enabled;
+        sops = enabled;
       };
 
       system = {
