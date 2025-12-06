@@ -28,7 +28,7 @@ in {
       };
       services = enabled;
 
-      # tools = { appimage-run = enabled; };
+      tools = { appimage-run = enabled; };
       home = {
         file = {
           "Desktop/.keep".text = "";

@@ -6,6 +6,7 @@ let
   apps = {
     emacs = enabled;
     android = enabled;
+    surrealdb = enabled;
   };
   cli-apps = { zellij = enabled; };
 in {

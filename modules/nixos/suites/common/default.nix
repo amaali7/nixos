@@ -28,6 +28,7 @@ in {
         bottom = enabled;
         cli = enabled;
         archive = enabled;
+        audio = enabled;
       };
 
       hardware = {

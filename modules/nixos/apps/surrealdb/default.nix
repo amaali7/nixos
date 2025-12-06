@@ -11,27 +11,17 @@ in {
   config = mkIf cfg.enable {
     networking.firewall = {
       enable = true;
-      allowedTCPPorts = [ 80 443 5321 ];
-      allowedUDPPortRanges = [
-        {
-          from = 5300;
-          to = 5330;
-        }
-        {
-          from = 8000;
-          to = 8010;
-        }
-      ];
+      allowedTCPPorts = [ 80 443 8000 ];
+      allowedUDPPortRanges = [{
+        from = 8000;
+        to = 8010;
+      }];
     };
     services.surrealdb = {
       enable = true;
-      # port = 5321;
-      # host = "127.0.0.1";
-      extraFlags = [
-        # "--allow-all"
-        "--user root"
-        "--pass root"
-      ];
+      port = 8000;
+      host = "0.0.0.0";
+      extraFlags = [ "--allow-all" "--user" "root" "--pass" "root" ];
     };
 
   };
