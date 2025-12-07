@@ -8,6 +8,6 @@ in {
   };
 
   config = mkIf cfg.enable {
-    environment.systemPackages = with pkgs; [ tdlib tdesktop ];
+    environment.systemPackages = with pkgs; [ tdlib telegram-desktop ];
   };
 }

@@ -2,10 +2,10 @@
 
 mkShell {
   # Create your shell
-  packages = with pkgs; [ zsh tmux llvmPackages_16.libclang postgresql ];
+  packages = with pkgs; [ zsh tmux llvmPackages_20.libclang postgresql ];
   RUST_LOG = "info";
   RUST_BACKTRACE = 1;
-  LIBCLANG_PATH = "${pkgs.llvmPackages_16.libclang.lib}/lib";
+  LIBCLANG_PATH = "${pkgs.llvmPackages_20.libclang.lib}/lib";
   postgresConf = pkgs.writeText "postgresql.conf" ''
     # Add Custom Settings
     log_min_messages = warning

@@ -22,7 +22,7 @@ in {
           # icon fonts
           material-symbols
           # normal fonts
-          ubuntu_font_family
+ubuntu-classic
           line-awesome
           font-awesome
           font-awesome_4
@@ -38,7 +38,7 @@ in {
           lexend
           noto-fonts
           noto-fonts-cjk-sans
-          noto-fonts-emoji
+noto-fonts-color-emoji
           roboto
           fira-code
           # nerdfonts

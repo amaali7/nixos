@@ -83,6 +83,8 @@ in {
               git commit -m ($commit);
               git push;
           }
+          alias ll = ls -l
+          alias sudo = doas
         '';
       };
       carapace.enable = true;

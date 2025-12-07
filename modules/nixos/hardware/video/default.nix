@@ -17,10 +17,10 @@ in {
 
       graphics = {
         extraPackages32 = with pkgs.pkgsi686Linux; [
-          vaapiVdpau
+          libva-vdpau-driver
           libvdpau-va-gl
         ];
-        extraPackages = with pkgs; [ vaapiVdpau libvdpau-va-gl ];
+        extraPackages = with pkgs; [ libva-vdpau-driver libvdpau-va-gl ];
       };
 
       opentabletdriver.enable = true;

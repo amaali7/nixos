@@ -8,6 +8,6 @@ in {
   };
 
   config = mkIf cfg.enable {
-    environment.systemPackages = with pkgs; [ whatsapp-for-linux ];
+    environment.systemPackages = with pkgs; [  wasistlos];
   };
 }

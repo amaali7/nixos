@@ -35,7 +35,7 @@ in {
         whitesur-icon-theme
         colloid-icon-theme
         arc-theme
-        gradience
+        # gradience
         adw-gtk3
         arc-icon-theme
         material-symbols

@@ -9,6 +9,7 @@ in {
   };
 
   config = mkIf cfg.enable {
+    environment.systemPackages = with pkgs; [ surrealist ];
     networking.firewall = {
       enable = true;
       allowedTCPPorts = [ 80 443 8000 ];

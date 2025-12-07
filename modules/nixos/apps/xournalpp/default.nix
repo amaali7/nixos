@@ -8,6 +8,6 @@ in {
   };
 
   config = mkIf cfg.enable {
-    environment.systemPackages = with pkgs; [ poppler_utils xournalpp ];
+    environment.systemPackages = with pkgs; [ poppler-utils xournalpp ];
   };
 }

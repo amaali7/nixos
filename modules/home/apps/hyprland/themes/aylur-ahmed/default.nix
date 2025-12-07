@@ -59,7 +59,7 @@ in {
         slurp
         kitty
         sassc
-        watershot
+        # watershot
         hyprland
         hyprland-protocols
         # hyprland-share-picker

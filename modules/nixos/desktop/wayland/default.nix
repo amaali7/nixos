@@ -15,7 +15,7 @@ in {
       wl-gammactl
       wl-clipboard
       wf-recorder
-      watershot
+      # watershot
       swww
       wlprop
     ];
