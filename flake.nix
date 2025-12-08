@@ -232,7 +232,10 @@
         yazi.overlays.default
       ];
       # ---------- 2.  home-manager users get the sops module ----------
-      homes.modules = [ inputs.sops-nix.homeManagerModules.sops ];
+      homes.modules = with inputs; [
+        sops-nix.homeManagerModules.sops
+        caelestia-shell.homeManagerModules.default
+      ];
 
       systems.modules.nixos = with inputs; [
         # niri.nixosModules.niri
@@ -240,7 +243,7 @@
         lix-module.nixosModules.default
         nur.modules.nixos.default
         sops-nix.nixosModules.sops
-        # nix-ld.nixosModules.nix-ld
+
         # nix-ld.nixosModules.nix-ld
         # lix.nixosModules.default
         # @TODO(jakehamilton): Replace amaali7.services.attic now that vault-agent
