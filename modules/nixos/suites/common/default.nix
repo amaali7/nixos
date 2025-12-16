@@ -18,7 +18,7 @@ in {
       environment = enabled;
       # @TODO(jakehamilton): Enable this once Attic is configured again.
       # cache.public = enabled;
-
+      apps.plover = enabled;
       tools = {
         git = enabled;
         misc = enabled;

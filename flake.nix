@@ -27,6 +27,26 @@
       url = "github:caelestia-dots/shell";
       inputs.nixpkgs.follows = "unstable";
     };
+    dgop = {
+      url = "github:AvengeMedia/dgop";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    dankMaterialShell = {
+      url = "github:AvengeMedia/DankMaterialShell";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.dgop.follows = "dgop";
+    };
+
+    niri = {
+      url = "github:sodiboo/niri-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    noctalia = {
+      url = "github:noctalia-dev/noctalia-shell";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     # Lix
     lix = {
       url = "https://git.lix.systems/lix-project/lix/archive/main.tar.gz";
@@ -235,6 +255,10 @@
       homes.modules = with inputs; [
         sops-nix.homeManagerModules.sops
         caelestia-shell.homeManagerModules.default
+        niri.homeModules.niri
+        inputs.noctalia.homeModules.default
+        dankMaterialShell.homeModules.dankMaterialShell.default
+        dankMaterialShell.homeModules.dankMaterialShell.niri
       ];
 
       systems.modules.nixos = with inputs; [

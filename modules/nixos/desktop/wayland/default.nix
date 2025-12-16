@@ -18,6 +18,7 @@ in {
       # watershot
       swww
       wlprop
+      gnome-disk-utility
     ];
     qt.platformTheme = "qt6ct";
     # QT

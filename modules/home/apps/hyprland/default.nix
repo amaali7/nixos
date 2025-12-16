@@ -17,7 +17,8 @@ in {
           # yorha = enabled;
           # aylur-ahmed = enabled;
           # hyde = enabled;
-          hypr-nord = enabled;
+          # hypr-nord = enabled;
+          noctalia = enabled;
         };
       };
     };
