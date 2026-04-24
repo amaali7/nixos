@@ -16,6 +16,7 @@
   inputs = {
     # NixPkgs (nixos-23.11)
     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
+    plover-flake.url = "github:openstenoproject/plover-flake";
     winapps = {
       url = "github:winapps-org/winapps";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -38,8 +39,8 @@
       inputs.dgop.follows = "dgop";
     };
 
-    niri = {
-      url = "github:sodiboo/niri-flake";
+    wiremix = {
+      url = "github:tsowell/wiremix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -91,15 +92,6 @@
       url = "github:hyprwm/hyprland-plugins";
       inputs.hyprland.follows = "hyprland";
     };
-    # niri.url = "github:sodiboo/niri-flake";
-    # stylix = {
-    #   url = "github:danth/stylix";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
-    # quickshell = {
-    #   url = "git+https://git.outfoxxed.me/outfoxxed/quickshell";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
 
     # Generate System Images
     nixos-generators.url = "github:nix-community/nixos-generators";
@@ -209,7 +201,6 @@
         homes.modules = with inputs;
           [
             # my-input.homeModules.my-module
-            niri.homeModules.niri
           ];
         snowfall = {
           namespace = "amaali7";
@@ -236,6 +227,7 @@
           #   # "electron-22.3.27"
           # "electron-25.9.0"
           # "nix-2.15.3"
+          "ventoy-1.1.07"
           "electron-27.3.11"
           "dotnet-runtime-6.0.36"
           "dotnet-sdk-wrapped-6.0.428"
@@ -255,14 +247,11 @@
       homes.modules = with inputs; [
         sops-nix.homeManagerModules.sops
         caelestia-shell.homeManagerModules.default
-        niri.homeModules.niri
         inputs.noctalia.homeModules.default
         dankMaterialShell.homeModules.dankMaterialShell.default
-        dankMaterialShell.homeModules.dankMaterialShell.niri
       ];
 
       systems.modules.nixos = with inputs; [
-        # niri.nixosModules.niri
         home-manager.nixosModules.home-manager
         lix-module.nixosModules.default
         nur.modules.nixos.default
@@ -274,29 +263,15 @@
         # exists and can force override environment files.
         # attic.nixosModules.atticd
       ];
-      # ---------- 3.  global defaults for sops ----------
-      #     (put here so you do NOT repeat yourself in every host/user file)
-      # systems.settings = {
-      #   # decrypt with the host SSH key
-      #   sops.age.sshKeyPaths = [ "/etc/ssh/ssh_host_ed25519_key" ];
-      #   sops.defaultSopsFile = ./secrets/secrets.yaml; # ← your encrypted file
-      # };
 
-      # homes.settings = {
-      #   # decrypt with the *user* SSH key
-      #   # sops.age.sshKeyPaths = [ "${config.home.homeDirectory}/.ssh/id_ed25519" ];
-      #   sops.defaultSopsFile = ./secrets/secrets.yaml; # ← same file
-      # };
       systems.hosts.b-laptop.modules = with inputs;
         [
-          # niri.homeModules.niri
           nixos-hardware.nixosModules.dell-latitude-7390
 
         ];
 
       systems.hosts.laptop.modules = with inputs;
         [
-          # niri.homeModules.niri
           nixos-hardware.nixosModules.dell-latitude-7390
 
         ];

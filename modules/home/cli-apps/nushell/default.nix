@@ -54,6 +54,7 @@ in {
                   $"($env.HOME)/.cargo/bin"          # user cargo bin
                   $"($env.HOME)/.local/bin"  # custom release builds
                   $"($env.HOME)/.config/emacs/bin"
+                  "/run/current-system/sw/libexec"
                 ]
               | flatten
               | uniq

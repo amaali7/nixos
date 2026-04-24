@@ -32,6 +32,8 @@ in {
         xdg-desktop-portal-hyprland
         xdg-desktop-portal-gtk
         waybar
+        # ayu-theme-gtk
+        flat-remix-gtk
         lm_sensors
         smartmontools
         hyprpolkitagent

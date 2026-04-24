@@ -14,6 +14,7 @@ in {
     amaali7 = {
       apps = {
         libreoffice = enabled;
+        texlive = enabled;
         xournalpp = enabled;
       };
     };

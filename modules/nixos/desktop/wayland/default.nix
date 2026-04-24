@@ -11,6 +11,7 @@ in {
     environment.systemPackages = with pkgs; [
       wlsunset
       wayfire
+      ghostty
       wl-clipboard
       wl-gammactl
       wl-clipboard

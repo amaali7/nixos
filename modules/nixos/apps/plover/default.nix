@@ -1,4 +1,4 @@
-{ options, config, lib, pkgs, ... }:
+{ options, config, lib, pkgs, inputs, ... }:
 with lib;
 with lib.amaali7;
 let cfg = config.amaali7.apps.obsidian;
@@ -8,6 +8,11 @@ in {
   };
 
   config = mkIf cfg.enable {
-    environment.systemPackages = with pkgs; with pkgs.amaali7; [ plover ];
+    services.udev.extraRules = ''
+      KERNEL=="uinput", GROUP="input", MODE="0660", OPTIONS+="static_node=uinput"
+    '';
+    amaali7.user.extraGroups = [ "dialout" "input" ];
+    environment.systemPackages =
+      [ inputs.plover-flake.packages.${pkgs.system}.plover-full ];
   };
 }

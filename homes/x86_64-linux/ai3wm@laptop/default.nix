@@ -7,9 +7,9 @@ with lib.${namespace}; {
       name = "ai3wm";
     };
     apps = {
-      # niri = enabled;
       hyprland = enabled;
       emacs = enabled;
+      dconf = enabled;
     };
     cli-apps = {
       home-manager = enabled;

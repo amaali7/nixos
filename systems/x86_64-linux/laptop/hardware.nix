@@ -24,10 +24,10 @@
     fsType = "btrfs";
     options = [ "subvol=home" ];
   };
-  fileSystems."/windows" = {
-    device = "/dev/disk/by-uuid/448E36D98E36C2EA";
-    fsType = "ntfs";
-  };
+   fileSystems."/home/ai3wm/Data" = {
+     device = "/dev/disk/by-uuid/6EAC4D0056D72436";
+     fsType = "ntfs";
+   };
   fileSystems."/nix" = {
     device = "/dev/disk/by-uuid/dcb33e21-8f87-4387-bd06-02043c51923a";
     fsType = "btrfs";

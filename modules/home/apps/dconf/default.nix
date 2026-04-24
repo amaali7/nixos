@@ -6,11 +6,15 @@ let
   user = config.amaali7.user;
   homeD = if user.name == null then null else "/home/${user.name}";
 
-  cfg = config.amaali7.apps.niri;
+  cfg = config.amaali7.apps.dconf;
 in {
-  options.amaali7.apps.niri = { enable = mkEnableOption "niri"; };
+  options.amaali7.apps.dconf = { enable = mkEnableOption "Caelestia"; };
 
   config = mkIf cfg.enable {
-    amaali7 = { apps = { niri.themes = { noctalia = enabled; }; }; };
+    dconf = enabled;
+    home = {
+      # packages = with pkgs;
+      #   [ inputs.caelestia-shell.packages."${pkgs.system}".default ];
+    };
   };
 }

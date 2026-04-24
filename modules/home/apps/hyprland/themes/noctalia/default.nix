@@ -16,7 +16,6 @@ in {
     programs.noctalia-shell = { enable = true; };
     programs.kitty = {
       enable = true;
-      themeFile = "nocatalia";
       extraConfig = ''
         font_size 14.0
         map ctrl+v paste_from_clipboard
@@ -28,7 +27,7 @@ in {
         tab_powerline_style         slanted
         tab_title_template          {title}{' :{}:'.format(num_windows) if num_windows > 1 else '''}
         window_padding_width	      3
-
+        include themes/noctalia.conf
       '';
       font = {
         name = "Fira Code";
