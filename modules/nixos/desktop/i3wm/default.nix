@@ -10,6 +10,7 @@ in {
 
   config = mkIf cfg.enable {
     amaali7 = {
+      apps = { nemo = enabled; };
       desktop = {
         themes = enabled;
         xfce = enabled;
