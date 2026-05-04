@@ -10,15 +10,8 @@ in {
   config = mkIf cfg.enable {
     environment.systemPackages = with pkgs.xfce;
 
-      [
-        xfce4-power-manager
-        thunar
-        thunar-volman
-        thunar-archive-plugin
-        thunar-media-tags-plugin
-        tumbler
-        ristretto
-      ] ++ (with pkgs; [ gvfs glib cmd-polkit lxqt.lxqt-policykit ]);
+      [ xfce4-power-manager ristretto ]
+      ++ (with pkgs; [ gvfs glib cmd-polkit lxqt.lxqt-policykit ]);
     services = {
       gvfs.enable = true;
       tumbler = enabled;

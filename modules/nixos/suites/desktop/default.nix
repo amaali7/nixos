@@ -13,7 +13,11 @@ in {
 
     programs.dconf.enable = true;
     amaali7 = {
-      desktop = { hyprland = enabled; i3wm = enabled;};
+      desktop = {
+        cinnamon = enabled;
+        hyprland = enabled;
+        i3wm = enabled;
+      };
 
       apps = {
         zen = enabled;

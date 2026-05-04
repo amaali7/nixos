@@ -13,6 +13,7 @@ in {
     amaali7 = {
       apps = {
         qemu = enabled;
+        wine = enabled;
         # waydroid = enabled;
       };
       virtualisation = {

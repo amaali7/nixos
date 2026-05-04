@@ -37,7 +37,7 @@ in {
         lm_sensors
         smartmontools
         hyprpolkitagent
-        ulauncher
+        # ulauncher
       ]);
 
   };
