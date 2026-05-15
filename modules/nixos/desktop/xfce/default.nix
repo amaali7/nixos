@@ -31,43 +31,8 @@ in {
         Restart = "always";
       };
     };
-    # systemd.user.services.gvfs-daemon = {
-    #   description = "GVFS Daemon";
-    #   wantedBy = [ "default.target" ];
-    #   after = [ "dbus.service" ];
 
-    #   serviceConfig = {
-    #     ExecStart = "${pkgs.gvfs}/libexec/gvfsd";
-    #     Restart = "on-failure";
-    #   };
-    # };
-    # systemd.user.services.gvfs-udisks2-monitor = {
-    #   description = "GVFS UDisks2 Volume Monitor";
-    #   wantedBy = [ "default.target" ];
-    #   after = [ "gvfs-daemon.service" ];
-
-    #   serviceConfig = {
-    #     ExecStart = "${pkgs.gvfs}/libexec/gvfs-udisks2-volume-monitor";
-    #     Restart = "on-failure";
-    #   };
-    # };
-    systemd.user.services.thunar-daemon = {
-      description = "Thunar Daemon";
-      wantedBy = [ "default.target" ];
-
-      serviceConfig = {
-        ExecStart = "${pkgs.xfce.thunar}/bin/thunar --daemon";
-      };
-    };
     security.polkit = enabled;
-    programs.thunar = {
-      enable = true;
-      plugins = with pkgs.xfce; [
-        thunar-archive-plugin
-        thunar-volman
-        thunar-media-tags-plugin
-      ];
-    };
     # critical for GDM + non-GNOME WMs
     services.xserver.displayManager.sessionCommands = ''
       systemctl --user import-environment \

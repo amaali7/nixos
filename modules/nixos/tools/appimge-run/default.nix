@@ -10,7 +10,10 @@ in {
 
   config = mkIf cfg.enable {
     amaali7.home.configFile."wgetrc".text = "";
-
-    environment.systemPackages = with pkgs; [ appimage-run ];
+    programs.appimage = {
+      enable = true;
+      binfmt = true;
+    };
+    # environment.systemPackages = with pkgs; [ appimage-run ];
   };
 }

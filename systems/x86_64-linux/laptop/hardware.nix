@@ -13,11 +13,13 @@
     "usb_storage"
     "uas"
     "sd_mod"
+    "btrfs"
   ];
   boot.kernelParams = [ "fsck.mode=force" "fsck.repair=yes" ];
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
   boot.plymouth.enable = true;
+  boot.initrd.supportedFilesystems = [ "btrfs" ];
   boot.initrd.systemd.enable = true;
 
   fileSystems."/" = {

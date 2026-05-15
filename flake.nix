@@ -264,6 +264,11 @@
         # attic.nixosModules.atticd
       ];
 
+      systems.hosts.nvme-0.modules = with inputs;
+        [
+          nixos-hardware.nixosModules.dell-latitude-7390
+
+        ];
       systems.hosts.b-laptop.modules = with inputs;
         [
           nixos-hardware.nixosModules.dell-latitude-7390
